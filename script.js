@@ -27,7 +27,7 @@ function comprobarDNI(){
     var numero
     var letr
     var letra
-    if(/^\d{8}[a-zA-Z]$/.test(document.getElementById('dni').value) == true){ //(https://donnierock.com/2011/11/05/validar-un-dni-con-javascript/)
+    if(/^\d{8}-[a-zA-Z]$/.test(document.getElementById('dni').value) == true){ //(https://donnierock.com/2011/11/05/validar-un-dni-con-javascript/)
         numero = document.getElementById('dni').value.substr(0,document.getElementById('dni').value.length-1);
         letr = document.getElementById('dni').value.substr(document.getElementById('dni').value-1,1);
         numero = numero % 23;
