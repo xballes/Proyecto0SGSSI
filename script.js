@@ -1,5 +1,5 @@
 function iniciarSesion(){
-    /*console.log("Hola");*/
+
 
 }
 
@@ -9,7 +9,7 @@ function comprobarCampos(){
         alert("El campo nombre esta vacio o contiene un numero")
     }
 
-    comprobarDNI();
+    dniValido(document.getElementById('dni').value);
     
     
     if(document.getElementById('telefono').value.length!=9){
@@ -23,22 +23,14 @@ function comprobarCampos(){
 
     }
 }
-function comprobarDNI(){
-    var numero
-    var letr
-    var letra
-    if(/^\d{8}-[a-zA-Z]$/.test(document.getElementById('dni').value) == true){ //(https://donnierock.com/2011/11/05/validar-un-dni-con-javascript/)
-        numero = document.getElementById('dni').value.substr(0,document.getElementById('dni').value.length-1);
-        letr = document.getElementById('dni').value.substr(document.getElementById('dni').value-1,1);
-        numero = numero % 23;
-        letra='TRWAGMYFPDXBNJZSQVHLCKET';
-        letra=letra.substring(numero,numero+1);
-       if (letra!=letr.toUpperCase()) {
-          alert('Dni erroneo, la letra del DNI no se corresponde');
-        }else{
-          alert('Dni correcto');
-        }
-     }else{
-        alert('Dni erroneo, formato no válido');
-      }
+
+function dniValido(dni){ // Retorna: true | false
+    if (/^\d{8}[a-zA-Z]$/.test(dni)) {
+    var n = dni.substr(0,8);
+    var c = dni.substr(8,1);
+     if(!(c.toUpperCase() == 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(n%23))){
+        alert('DNI erroneo');
+    
+    }
+    }
 }
