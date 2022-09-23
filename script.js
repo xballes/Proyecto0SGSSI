@@ -1,5 +1,5 @@
 function iniciarSesion(){
-    console.log("Hola");
+    /*console.log("Hola");*/
 
 }
 
@@ -14,11 +14,9 @@ function comprobarCampos(){
     if(document.getElementById('telefono').value.length!=9){
         alert("El numero debe ser de 9 digitos")
     }
-
-   if(!(/^[0-9]4-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])$/.test(document.getElementById('fecha').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
+   if(!(/^(\d{4})(-)(0[1-9]|1[012])\2([012][1-9]|3[01])$/.test(document.getElementById('fecha').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
         alert("La fecha introducida no sigue el patron: aaaa-mm-dd")
    }
-
     if(!(/^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value))){ //https://es.stackoverflow.com/questions/142/validar-un-email-en-javascript-que-acepte-todos-los-caracteres-latinos
         alert("El email introducido no es correcto")
 
