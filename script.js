@@ -24,7 +24,7 @@ function comprobarCampos(){
     }
 }
 
-function dniValido(dni){ // Retorna: true | false
+function dniValido(dni){
     if (/^\d{8}[a-zA-Z]$/.test(dni)) {
     var n = dni.substr(0,8);
     var c = dni.substr(8,1);
