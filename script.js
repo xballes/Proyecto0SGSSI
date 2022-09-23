@@ -9,7 +9,8 @@ function comprobarCampos(){
         alert("El campo nombre esta vacio o contiene un numero")
     }
 
-    comprobarDNI;
+    comprobarDNI();
+    
     
     if(document.getElementById('telefono').value.length!=9){
         alert("El numero debe ser de 9 digitos")
