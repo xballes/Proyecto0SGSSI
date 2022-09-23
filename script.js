@@ -32,5 +32,8 @@ function dniValido(dni){
         alert('DNI erroneo');
     
     }
+    }else{
+        alert('DNI erroneo');
+
     }
 }
