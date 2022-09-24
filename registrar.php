@@ -17,14 +17,14 @@
 	$fecha=$_POST['fecha'];
 	$email=$_POST['email'];
 	//hacemos la sentencia de sql
-	$sql="INSERT INTO Usuario VALUES('$nombre','$dni','$telefono','$fecha','$email')";
+	$sql="INSERT INTO Usuario (Nombre,DNI,Telefono,Fecha,Email) VALUES('$nombre','$dni','$telefono','$fecha','$email')";
 	//ejecutamos la sentencia de sql
 	$ejecutar=mysqli_query($conectar,$sql);
 	//verificamos la ejecucion
 	if(!$ejecutar){
-		<h3 class="fallido">¡Ups ha ocurrido un error!</h3>
-		alert("USUARIO YA REGISTRADO!")
+		echo"Hubo Algun Error";
 	}else{
-		<h3 class="correcto">¡Te has inscripto correctamente!</h3>
+		echo"Datos Guardados Correctamente";
 	}
 ?>
+
