@@ -9,7 +9,7 @@
 </head>
 <body>
   <script src="./script.js"></script>
-  <section class="formulario">
+  <form action="registrar.php" class="formulario" method="POST">
     <h4>Formulario de Registro</h4>
     <p>Nombre:</p>
     <input class="caja" type="text" name="nombre" id ='nombre' placeholder="p. ej Ander" required>
@@ -28,12 +28,6 @@
     <input class="botones"type="submit" value="Registrar usuario" name="registrar" onclick="comprobarCampos();">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
     <p><a href="iniciosesion.html">Ya tengo Cuenta</a></p>
-  </section>
-
- <? php
-     <?php 
-        include("registrar.php");
-        ?>
-
+</form>
 </body>
 </html>
