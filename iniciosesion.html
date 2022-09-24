@@ -8,14 +8,14 @@
   <title>Iniciar sesión</title>
 </head>
 <body>
-  <section class="formulario">
+  <form action="logear.php" class="formulario" method="POST">
     <h4>Iniciar Sesion</h4>
     <p>Nombre:</p>
     <input class="caja" type="text" name="nombre" id ='nombre' placeholder="p. ej Ander" required>
     
     <p>Contraseña:</p>
-    <input class="caja" type="password" name ="contraseña" id='contraseña'required><br>
-    <input class="botones" type="submit" value="Iniciar Sesion">
+    <input class="caja" type="password" name ="contrasena" id='contrasena'required><br>
+    <input class="botones" type="submit" value="Iniciar Sesion" name="iniciar">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
   </section>
 

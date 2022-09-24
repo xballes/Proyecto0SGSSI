@@ -22,8 +22,9 @@
 	$ejecutar=mysqli_query($conectar,$sql);
 	//verificamos la ejecucion
 	if(!$ejecutar){
-		echo"Hubo Algun Error";
+		<h3 class="fallido">¡Ups ha ocurrido un error!</h3>
+		alert("USUARIO YA REGISTRADO!")
 	}else{
-		echo"Datos Guardados Correctamente";
+		<h3 class="correcto">¡Te has inscripto correctamente!</h3>
 	}
 ?>
