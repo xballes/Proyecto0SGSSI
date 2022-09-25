@@ -12,7 +12,7 @@
 	}
 	//recuperar las variables
 	$nombre=$_POST['nombre'];
-	$contrasena=$_POST['contraseña'];
+	$contrasena=$_POST['contrasena'];
 	//hacemos la sentencia de sql
 	$contrasenaUsuario="SELECT Contrasena FROM Usuario WHERE (Nombre='$nombre')"; //Consigue la contraseña del usuario
 	$usuario="SELECT * FROM Usuario WHERE (Nombre='$nombre')"; //Consigue el nombre (para ver si existe el usuario)
