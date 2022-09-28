@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formularios.css">
+  <title>Formulario de Registro del perro</title>
+</head>
+<body>
+  <script src="./script.js"></script>
+  <form action="registrar.php" class="formulario" method="POST">
+    <h4>Formulario de Registro</h4>
+    <p>Nombre:</p>
+    <input class="caja" type="text" name="nombre" id ='nombre' placeholder="p. ej Rocky" required>
+   
+    <p>Raza:</p>
+    <input class="caja"type="text" name="raza" id ='raza' placeholder="p. ej Bulldog" required>
+
+    <p>Peso:</p>
+    <input class="caja" type="text" name ="peso" id ='peso' placeholder="p. ej 40" required>
+
+    <p>Fecha de nacimiento:</p>
+    <input class="caja" type="text" name ="fechanacimiento" id ='fechanacimiento' placeholder="p. ej 2000-10-10" required>
+
+    <p>DNIDueño:</p>
+    <input class="caja" type="text" name ="dnidueño" id='dnidueño' placeholder="p. ej 12345678-A" required><br>
+
+    <input class="botones"type="submit" value="Registrar perro" name="registrar.perro" onclick="comprobarCampos();">
+    <input class="botones"type="reset" value="Borrar datos" name="borrar">
+    
+</form>
+</body>
+</html>
