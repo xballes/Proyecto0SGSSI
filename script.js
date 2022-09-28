@@ -18,28 +18,6 @@ function comprobarCampos(){
 
     }
 }
-
-
-function modificarCampos(){
-    if(!isNaN(document.getElementById('nombre').value)){ //Comprueba si el contiene numeros ()
-        alert("El campo nombre esta vacio o contiene un numero")
-    }
-
-    dniValido(document.getElementById('dni').value);
-    
-    
-    if(document.getElementById('telefono').value.length!=9 && document.getElementById('telefono').value.length>0){
-        alert("El numero debe ser de 9 digitos")
-    }
-   if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fecha').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
-        alert("La fecha introducida no sigue el patron: aaaa-mm-dd")
-   }
-    if(!(/^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value))){ //https://es.stackoverflow.com/questions/142/validar-un-email-en-javascript-que-acepte-todos-los-caracteres-latinos
-        alert("El email introducido no es correcto")
-
-    }
-}
-
 function dniValido(dni){
     if (/^\d{8}[a-zA-Z]$/.test(dni)) {
     var n = dni.substr(0,8);
@@ -56,36 +34,32 @@ function dniValido(dni){
 
 //-----------------------------------MODIFICAR--------------------------------------------
 function modificarNombre(){
-    if(document.getElementById('nombre').value.length !=0 && !isNaN(document.getElementById('nombre').value)){
-        alert("Nombre modificado");
+    if(!isNaN(document.getElementById('nombre').value)){
+        alert("El campo nombre contiene un numero")
+       
     }
 }
 function modificarDNI(){
-    if(document.getElementById('dni').value.length !=0 && dniValido(document.getElementById('dni').value)){
-        alert("DNI modificado");
-    }
+    dniValido(document.getElementById('dni').value);
 }
 
 function modificarTelefono(){
-    if(document.getElementById('telefono').value.length !=0 && document.getElementById('telefono').value.length==9){
-        alert("Telefono modificado");
+    if(document.getElementById('telefono').value.length!=9){
+        alert("El numero debe ser de 9 digitos")
+
     }
 }
 function modificarFecha(){
-    if(document.getElementById('fecha').value.length !=0 && /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fecha').value)){
-        alert("Fecha de nacimiento modificada");
+    if(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fecha').value)){
+        alert("La fecha introducida no sigue el patron: aaaa-mm-dd")
     }
 }
 function modificarEmail(){
-    if( document.getElementById('email').value.length !=0  && /^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value)){
-        alert("Emaill modificado");
+    if(/^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value)){
+        alert("El email introducido no es correcto")
     }
 }
-function modificarContrasena(){
-    if(document.getElementById('contrasena').value.length !=0){
-        alert("Contraseña modificada");
-    }
-}
+
 
 
 
