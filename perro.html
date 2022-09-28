@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formularios.css">
+  <title>Formulario de Registro</title>
+</head>
+<body>
+  <script src="./script.js"></script>
+  <form action="registrar.php" class="formulario" method="POST">
+    <h4>Formulario de Registro</h4>
+    <p>Nombre:</p>
+    <input class="caja" type="text" name="nombre" id ='nombre' placeholder="p. ej Ander" required>
+   
+    <p>DNI:</p>
+    <input class="caja"type="text" name="dni" id ='dni' placeholder="p. ej XXXXXXXX-A" required>
+
+    <p>Telefono:</p>
+    <input class="caja" type="text" name ="telefono" id ='telefono' placeholder="p. ej 123456789" required>
+
+    <p>Fecha de nacimiento:</p>
+    <input class="caja" type="text" name ="fecha" id ='fecha' placeholder="p. ej 2000-10-10" required>
+
+    <p>Email:</p>
+    <input class="caja" type="text" name ="email" id='email' placeholder="p. ej xxxxxxx@gmail.com" required><br>
+<p>Contrasena:</p>
+    <input class="caja" type="password" name ="contrasena" id='contrasena'required><br>
+
+    <input class="botones"type="submit" value="Registrar usuario" name="registrar" onclick="comprobarCampos();">
+    <input class="botones"type="reset" value="Borrar datos" name="borrar">
+    <p><a href="iniciosesion.html">Ya tengo Cuenta</a></p>
+</form>
+</body>
+</html>
