@@ -32,6 +32,26 @@ function dniValido(dni){
     }
 }
 
+
+function comprobarCamposPerro(){
+    if(document.getElementById('nombrePerro').value==='' || !isNaN(document.getElementById('nombre').value)){ //Comprueba si el campo es vacio o contiene numeros ()
+        alert("El campo nombre esta vacio o contiene un numero")
+    }
+        
+
+   if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fecha').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
+        alert("La fecha introducida no sigue el patron: aaaa-mm-dd")
+   }
+
+   if(document.getElementById('pesoPerro').value===''){
+    alert("¡Debes introducir un peso!")
+   }
+
+
+   if(document.getElementById('razaPerro').value===''){
+    alert("¡Debes introducir un nombre!")
+   }
+}
 //-----------------------------------MODIFICAR--------------------------------------------
 function modificarNombre(){
     if(!isNaN(document.getElementById('nombre').value)){

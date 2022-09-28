@@ -15,8 +15,8 @@ session_start();
   <h2> Bienvenido <?php echo $_SESSION['Usuario']?> !</h2>
   <h2> Que deseas hacer? </h2>
   <input class="botones" type="button" value="Modificar datos" name="modificar" onclick="location.href='modificarformulario.html'">
-  <input class="botones" type="button" value="Añiadir perro" name="añiadirperro" onclick="location.href='registroperro.html' ">
-  <input class="botones" type="button" value="Mostrar lista" name="mostrar">
+  <input class="botones" type="button" value="Añiadir perro" name="añiadirperro" onclick="location.href='perroform.html'">
+  <input class="botones" type="button" value="Mostrar lista" name="mostrar" onclick="location.href='lista.php' ">
 
 </form>
 </body>

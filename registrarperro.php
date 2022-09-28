@@ -11,28 +11,35 @@ if(!$conectar){
         if(!$base){
             echo"No Se Encontro La Base De Datos";
         }
-}   
-//recuperar las variables
-$nombre=$_POST['nombre'];
-$raza=$_POST['raza'];
-$peso=$_POST['peso'];
-$fechanacimiento$_POST['fechanacimiento'];
-$dnidueño$_POST['dnidueño'];
+}
 
 
-//hacemos la sentencia de sql
-$sql="INSERT INTO Perro (Nombre,Raza,Peso,FechaNacimiento,DNIDueño) VALUES('$nombre','$raza','$peso','$fechanacimiento','$dnidueño')";
-//ejecutamos la sentencia de sql
-$ejecutar=mysqli_query($conectar,$sql);
-//verificamos la ejecucion
-if(!$ejecutar){
-    ?> 
-	    	<h3 class="ok">¡Ha ocurrido un error,vuelve a introducir los datos!</h3>
+$nombrePerro=$_POST['nombrePerro'];
+$raza=$_POST['razaPerro'];
+$peso=$_POST['pesoPerro'];
+$fechanacimiento=$_POST['fechanacimiento'];
+
+$sesionactual=$_SESSION['Usuario'];
+
+$dniactual="SELECT DNI from Usuario where Nombre='$sesionactual'";
+$ejecutar=mysqli_query($conectar,$dniactual);
+$dnidueno=mysqli_fetch_array($ejecutar)[0];
+
+
+
+$registrar="INSERT INTO Perro VALUES('$nombrePerro','$raza','$peso','$fechanacimiento','$dnidueno')";
+$registro=mysqli_query($conectar,$registrar);
+
+if(!$registro){
+    ?>      
+	    	<h3 class="bad">¡Ha ocurrido un error en el registro,vuelve a introducir los datos!</h3>
            <?php
+            
 }else{
-    echo"Datos Guardados Correctamente";
-    /*SESION*/
-   
+    ?> 
+     <h3 class="bad">¡Perro registrado correctamente!</h3>
+   <?php
+     header("Location:areapersonal.php");
 }
 
 ?>
