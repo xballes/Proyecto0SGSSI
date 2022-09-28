@@ -1,8 +1,3 @@
-function iniciarSesion(){
-
-
-}
-
 
 function comprobarCampos(){
     if(document.getElementById('nombre').value==='' || !isNaN(document.getElementById('nombre').value)){ //Comprueba si el campo es vacio o contiene numeros ()

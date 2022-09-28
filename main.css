@@ -9,7 +9,7 @@ nav{
 }
 
 nav a {
-
+    width: 100%;
     line-height: 60px;
     height: 100%;
     font-size: 15px;
@@ -60,6 +60,15 @@ a:nth-child(6){
     width: 120px;
 }
 
+body {
+
+    font-size: 24px;
+    font-family: sans-serif;
+    background: #2c3e50;
+    text-align: center;
+    color: white;
+}
+
 .logo{
     position:relative;
     left: -1000px;
@@ -87,18 +96,14 @@ a:nth-child(6){
 
 }
 
-
-body {
-
-    font-size: 24px;
-    font-family: sans-serif;
-    background: #2c3e50;
-    text-align: center;
+.boton {
+    width: 100%;
+    background: #1f53c5;
+    border: none;
+    padding: 12px;
     color: white;
+    margin: 16px 0;
+    font-size: 16px;
+  }
 
-}
-
-span {
-    color: #2BD6B4;
-}
 
