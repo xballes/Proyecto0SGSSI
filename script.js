@@ -57,7 +57,7 @@ function dniValido(dni){
 //-----------------------------------MODIFICAR--------------------------------------------
 function modificarNombre(){
     if(document.getElementById('nombre').value.length !=0 && !isNaN(document.getElementById('nombre').value)){
-        alert("Nombre modificada");
+        alert("Nombre modificado");
     }
 }
 function modificarDNI(){
