@@ -54,36 +54,6 @@ function dniValido(dni){
     }
 }
 
-//-----------------------------------MODIFICAR--------------------------------------------
-function modificarNombre(){
-    if(document.getElementById('nombre').value.length !=0 && !isNaN(document.getElementById('nombre').value)){
-        alert("Nombre modificada");
-    }
-}
-function modificarDNI(){
-    if(document.getElementById('dni').value.length !=0 && dniValido(document.getElementById('dni').value)){
-        alert("DNI modificado");
-    }
-}
 
-function modificarTelefono(){
-    if(document.getElementById('telefono').value.length !=0 && document.getElementById('telefono').value.length==9){
-        alert("Telefono modificado");
-    }
-}
-function modificarFecha(){
-    if(document.getElementById('fecha').value.length !=0 && /^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fecha').value)){
-        alert("Fecha de nacimiento modificada");
-    }
-}
-function modificarEmail(){
-    if( document.getElementById('email').value.length !=0  && /^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value)){
-        alert("Emaill modificado");
-    }
-}
-function modificarContrasena(){
-    if(document.getElementById('contrasena').value.length !=0){
-        alert("Contraseña modificada");
-    }
-}
+
 
