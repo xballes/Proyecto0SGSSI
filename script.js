@@ -50,12 +50,12 @@ function modificarTelefono(){
     }
 }
 function modificarFecha(){
-    if(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fecha').value)){
+    if(!/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fecha').value)){
         alert("La fecha introducida no sigue el patron: aaaa-mm-dd")
     }
 }
 function modificarEmail(){
-    if(/^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value)){
+    if(!/^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value)){
         alert("El email introducido no es correcto")
     }
 }

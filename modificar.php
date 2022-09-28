@@ -19,41 +19,71 @@ $telefono=$_POST['telefono'];
 $fecha=$_POST['fecha'];
 $email=$_POST['email'];
 $contrasena=$_POST['contrasena'];
+$actual=$_SESSION['Usuario'];
 
 
-// si el campo no esta vacio, no actualizar los datos.
+// si el campo esta vacio, no actualizar los datos.
   
-    $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE (Nombre= '$_SESSION['Usuario']' ";
-    $dnisql="UPDATE Usuario SET Dni='$dni' WHERE (Nombre='$_SESSION['Usuario']' ";
-    $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE Nombre='$_SESSION['Usuario']'";
-    $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE Nombre='$_SESSION['Usuario']'";
-    $emailsql="UPDATE Usuario SET Email='$email' WHERE Nombre='$_SESSION['Usuario']'";
-    $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE Nombre='$_SESSION['Usuario']'";
+    $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE Nombre='$actual' ";
+    $dnisql="UPDATE Usuario SET DNI='$dni' WHERE Nombre='$actual' ";
+    $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE Nombre='$actual' ";
+    $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE Nombre='$actual' ";
+    $emailsql="UPDATE Usuario SET Email='$email' WHERE Nombre='$actual' ";
+    $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE Nombre='$actual' ";
 
 //ejecutamos la sentencia de sql
-$ejecutar1=mysqli_query($conectar,$nombresql);
+/*$ejecutar1=mysqli_query($conectar,$nombresql);
 $ejecutar2=mysqli_query($conectar,$dnisql);
 $ejecutar3=mysqli_query($conectar,$telefonosql);
 $ejecutar4=mysqli_query($conectar,$fechasql);
 $ejecutar5=mysqli_query($conectar,$emailsql);
-$ejecutar6=mysqli_query($conectar,$contrasenasql);
-//verificamos la ejecucion
-if(isset($nombre) && $ejecutar1){
+$ejecutar6=mysqli_query($conectar,$contrasenasql);*/
+
+if(!empty($nombre)){
+    $ejecutar1=mysqli_query($conectar,$nombresql);
+    if($ejecutar1){
     /*Cerrar sesion*/
-    session_destroy()
+    session_destroy();
 	session_start();
     $_SESSION['Usuario']=$nombre;
     echo("Nombre modificado correctamente");
-
+    }
 }
-if(isset($dni) && $ejecutar2){
+if(!empty($dni)){
+    $ejecutar2=mysqli_query($conectar,$dnisql);
+    if($ejecutar2){
+    /*Cerrar sesion*/
     echo("DNI modificado correctamente");
+    }
 }
-if(isset($telefono) && $ejecutar3){
+if(!empty($telefono)){
+    $ejecutar3=mysqli_query($conectar,$telefonosql);
+    if($ejecutar3){
+    /*Cerrar sesion*/
     echo("Telefono modificado correctamente");
+    }
 }
-if(isset($email) && $ejecutar4){
+if(!empty($fecha)){
+    $ejecutar4=mysqli_query($conectar,$fechasql);
+    if($ejecutar4){
+    /*Cerrar sesion*/
+    echo("Fecha modificada correctamente");
+    }
+}
+if(!empty($email)){
+    $ejecutar5=mysqli_query($conectar,$emailsql);
+    if($ejecutar5){
+    /*Cerrar sesion*/
     echo("Email modificado correctamente");
+    }
 }
+if(!empty($contrasena)){
+    $ejecutar6=mysqli_query($conectar,$contrasenasql);
+    if($ejecutar6){
+    /*Cerrar sesion*/
+    echo("Contraseña modificada correctamente");
+    }
+}
+
 
 ?>
