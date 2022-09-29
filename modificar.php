@@ -32,30 +32,22 @@ $actualNombre=$_SESSION['Usuario'];
     $emailsql="UPDATE Usuario SET Email='$email' WHERE DNI='$actual' ";
     $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$actual' ";
 
-//ejecutamos la sentencia de sql
-/*$ejecutar1=mysqli_query($conectar,$nombresql);
-$ejecutar2=mysqli_query($conectar,$dnisql);
-$ejecutar3=mysqli_query($conectar,$telefonosql);
-$ejecutar4=mysqli_query($conectar,$fechasql);
-$ejecutar5=mysqli_query($conectar,$emailsql);
-$ejecutar6=mysqli_query($conectar,$contrasenasql);*/
 
 if(!empty($nombre)){
     $ejecutar1=mysqli_query($conectar,$nombresql);
     if($ejecutar1){
     /*Cerrar sesion*/
-    session_destroy();
-	session_start();
     $_SESSION['Usuario']=$nombre;
-    echo $actual;
     echo("Nombre modificado correctamente");
     }
 }
 if(!empty($dni)){
     $ejecutar2=mysqli_query($conectar,$dnisql);
     if($ejecutar2){
-    /*Cerrar sesion*/
+    $_SESSION['DNI']=$dni;
     echo("DNI modificado correctamente");
+    
+    
     }
 }
 if(!empty($telefono)){
