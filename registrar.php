@@ -33,6 +33,7 @@ if(!$ejecutar){
     echo"Datos Guardados Correctamente";
     /*SESION*/
     $_SESSION['Usuario']=$nombre;
+    $_SESSION['DNI']=$dni;
     header("Location:areapersonal.php");
 }
 

@@ -19,17 +19,18 @@ $telefono=$_POST['telefono'];
 $fecha=$_POST['fecha'];
 $email=$_POST['email'];
 $contrasena=$_POST['contrasena'];
-$actual=$_SESSION['Usuario'];
+$actual=$_SESSION['DNI'];
+$actualNombre=$_SESSION['Usuario'];
 
 
 // si el campo esta vacio, no actualizar los datos.
   
-    $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE Nombre='$actual' ";
-    $dnisql="UPDATE Usuario SET DNI='$dni' WHERE Nombre='$actual' ";
-    $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE Nombre='$actual' ";
-    $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE Nombre='$actual' ";
-    $emailsql="UPDATE Usuario SET Email='$email' WHERE Nombre='$actual' ";
-    $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE Nombre='$actual' ";
+    $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE DNI='$actual' ";
+    $dnisql="UPDATE Usuario SET DNI='$dni' WHERE DNI='$actual' ";
+    $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE DNI='$actual' ";
+    $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE DNI='$actual' ";
+    $emailsql="UPDATE Usuario SET Email='$email' WHERE DNI='$actual' ";
+    $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$actual' ";
 
 //ejecutamos la sentencia de sql
 /*$ejecutar1=mysqli_query($conectar,$nombresql);
@@ -46,6 +47,7 @@ if(!empty($nombre)){
     session_destroy();
 	session_start();
     $_SESSION['Usuario']=$nombre;
+    echo $actual;
     echo("Nombre modificado correctamente");
     }
 }

@@ -32,7 +32,8 @@
 				<?php
 				/*SESION*/
 				$sesion=mysqli_fetch_array($nombreSesion);
-				$_SESSION['Usuario']=$sesion[0];//mysqli_fetch_array($nombreSesion);
+				$_SESSION['Usuario']=$sesion[0];
+				$_SESSION['DNI']=$dni;//mysqli_fetch_array($nombreSesion);
 				header("Location:areapersonal.php");
 			}else{
 				?>
