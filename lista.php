@@ -39,7 +39,7 @@ $lista=mysqli_query($conectar,$listaperros);
         <table>
             <thead>
                 <tr>
-                    <th>Nombre</th>
+                    <th>NombrePerro</th>
                     <th>Raza</th>
                     <th>Peso</th>
                     <th>Fecha De Nacimiento</th>
@@ -49,19 +49,20 @@ $lista=mysqli_query($conectar,$listaperros);
             <tbody>
                 <?php while ($fila = mysqli_fetch_array($lista)): ?>
                     <tr>
-                        <th><?= $fila['Nombre'] ?></th>
+                        <th><?= $fila['NombrePerro'] ?></th>
                         <th><?= $fila['Raza'] ?></th>
                         <th><?= $fila['Peso'] ?></th>
                         <th><?= $fila['FechaNacimiento'] ?></th>
                         <th><?= $fila['DNIDueño'] ?></th>
-                        <th><a href="update.php?id=<?= $fila['id'] ?>" class="editar">Editar</a></th>
-                        <th><a href="delete_user.php?id=<?= $fila['id'] ?>" class="eliminar" >Eliminar</a></th>
+                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>" class="editar">Editar</a></th>
+                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>" class="eliminar" >Eliminar</a></th>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
         </table>
+        
     </div>
-
 </body>
+
 
 </html>

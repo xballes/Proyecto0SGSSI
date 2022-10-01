@@ -34,7 +34,7 @@ function dniValido(dni){
 
 
 function comprobarCamposPerro(){
-    if(document.getElementById('nombrePerro').value==='' || !isNaN(document.getElementById('nombre').value)){ //Comprueba si el campo es vacio o contiene numeros ()
+    if(!isNaN(document.getElementById('nombre').value)){ //Comprueba si el campo es vacio o contiene numeros ()
         alert("El campo nombre esta vacio o contiene un numero")
     }
         
@@ -43,13 +43,8 @@ function comprobarCamposPerro(){
         alert("La fecha introducida no sigue el patron: aaaa-mm-dd")
    }
 
-   if(document.getElementById('pesoPerro').value===''){
+   if(document.getElementById('pesoPerro').value.length!=2){
     alert("¡Debes introducir un peso!")
-   }
-
-
-   if(document.getElementById('razaPerro').value===''){
-    alert("¡Debes introducir un nombre!")
    }
 }
 //-----------------------------------MODIFICAR--------------------------------------------
