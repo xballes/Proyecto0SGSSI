@@ -29,12 +29,8 @@ $pesosql="UPDATE Perro SET Peso='$peso' WHERE Nombre='$nombreAcambiar'";
 $fechasql="UPDATE Perro SET FechaNacimiento='$fecha'Nombre='$nombreAcambiar'";
 
 if(!empty($nombre)){
-  
     $ejecutar1=mysqli_query($conectar,$nombresql);
     if($ejecutar1){
-        echo "$nombre";
-        echo "$nombreAcambiar";
-
     echo("Nombre modificado correctamente");
     }
 }

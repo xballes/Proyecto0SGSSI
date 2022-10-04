@@ -8,17 +8,18 @@ $NombrePerro=$_GET['NombrePerro'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formularios.css">
+    <script src="./script.js"></script>
   <title>Formulario de Registro</title>
 </head>
 <body>
-  <script src="./script.js"></script>
-  <form class="formulario" action="modificacionPerruna.php?NombrePerro=<?=$NombrePerro?>"method="POST">
+  
+  <form class="formulario" action="modificacion.php?NombrePerro=<?=$NombrePerro?>"method="POST">
     <h4>Modificar datos de:</h4>
     <h4> <?php echo $NombrePerro;?></h4>
     <input type="hidden" name="NombrePerro" value="<?= $NombrePerro?>">
     <p>Nombre:</p>
     <input class="caja" type="text" name="nombrePerro" id ='nombrePerro' placeholder="p. ej Rocky">
-   
+
     <p>Raza:</p>
     <input class="caja"type="text" name="razaPerro" id ='razaPerro' placeholder="p. ej Bulldog">
 
@@ -30,7 +31,7 @@ $NombrePerro=$_GET['NombrePerro'];
 
     <input class="botones"type="submit" value="Modificar datos" name="registrar.perro" onclick="comprobarCamposPerro();">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
-    
+
 </form>
 </body>
 </html>
