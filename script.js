@@ -50,9 +50,18 @@ function modificarNombre(){
     }
 }
 function modificarDNI(){
-    dniValido(document.getElementById('dni').value);
+    if(/^\d{8}-[a-zA-Z]$/.test(document.getElementById('dni').value)) {
+        var n = document.getElementById('dni').value.substr(0,8);
+        var c = document.getElementById('dni').value.substr(8,1);
+         if(!(c.toUpperCase() == 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(n%23))){
+            alert('DNI erroneo');
+        }
+        }else{
+            alert('DNI erroneo');
+            return false;
     
-}
+        }
+    }
 
 function modificarTelefono(){
     if(document.getElementById('telefono').value.length!=9){

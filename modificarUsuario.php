@@ -33,59 +33,59 @@ $actualNombre=$_SESSION['Usuario'];
     $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$actual' ";
 
 
-if(isset($nombre)){
+if(!empty($nombre)){
     $ejecutar1=mysqli_query($conectar,$nombresql);
     if($ejecutar1){
     /*Cerrar sesion*/
     $_SESSION['Usuario']=$nombre;
     ?> 
-    <h3 class="ok">¡Nombre modificado correctamente!</h3>
+    <h3 class="bien">¡Nombre modificado correctamente!</h3>
       <?php
     }
 }
-if(isset($dni)){
+if(!empty($dni)){
     $ejecutar2=mysqli_query($conectar,$dnisql);
     if($ejecutar2){
     $_SESSION['DNI']=$dni;
     ?> 
-    <h3 class="ok">¡DNI modificado correctamente!</h3>
+    <h3 class="bien">¡DNI modificado correctamente!</h3>
       <?php
      
     }
 }
-if(isset($telefono)){
+if(!empty($telefono)){
     $ejecutar3=mysqli_query($conectar,$telefonosql);
     if($ejecutar3){
     /*Cerrar sesion*/
     ?> 
-    <h3 class="ok">¡Telefono modificado correctamente!</h3>
+    <h3 class="bien">¡Telefono modificado correctamente!</h3>
       <?php
     }
 }
-if(isset($fecha)){
+if(!empty($fecha)){
     $ejecutar4=mysqli_query($conectar,$fechasql);
     if($ejecutar4){
     /*Cerrar sesion*/
     ?> 
-    <h3 class="ok">¡Fecha modificada correctamente!</h3>
+    <h3 class="bien">¡Fecha modificada correctamente!</h3>
       <?php
     }
 }
-if(isset($email)){
+if(!empty($email)){
     $ejecutar5=mysqli_query($conectar,$emailsql);
     if($ejecutar5){
     /*Cerrar sesion*/
     ?> 
-          <h3 class="ok">¡Email modificado correctamente!</h3>
+          <h3 class="bien">¡Email modificado correctamente!</h3>
             <?php
     }
 }
-if(isset($contrasena)){
+if(!empty($contrasena)){
     $ejecutar6=mysqli_query($conectar,$contrasenasql);
     if($ejecutar6){
     /*Cerrar sesion*/
     ?> 
-          <h3 class="ok">¡Contraseña modificada correctamente!</h3>
+          <h3 class="bien">¡Contraseña modificada correctamente!</h3>
             <?php
     }
 }
@@ -106,28 +106,28 @@ if(isset($contrasena)){
   
   
   
-  <form action="modificar.php" class="formulario" method="POST">
+  <form action="modificarUsuario.php" class="formulario" method="POST">
     <h4>Modificar datos</h4>
     <h4>Rellena los campos que quieres que se modifiquen</h4>
     <p>Nombre:</p>
     <input class="caja" type="text" name="nombre" id ='nombre' placeholder="p. ej Ander">
     <input class="botones"type="submit" value="Modificar nombre" name="modificarNombre" onclick="return modificarNombre();">
-   
+      
     <p>DNI:</p>
     <input class="caja"type="text" name="dni" id ='dni' placeholder="p. ej XXXXXXXX-A">
-    <input class="botones"type="submit" value="Modificar dni" name="modificarDNI" onclick="return modificarDNI();">
+    <input class="botones"type="submit" value="Modificar DNI" name="modificarDNI" onclick="return modificarDNI();">
 
     <p>Telefono:</p>
     <input class="caja" type="text" name ="telefono" id ='telefono' placeholder="p. ej 123456789">
-    <input class="botones"type="submit" value="Modificar nombre" name="modificarTelefono" onclick="return modificarTelefono();">
+    <input class="botones"type="submit" value="Modificar Telefono" name="modificarTelefono" onclick="return modificarTelefono();">
 
     <p>Fecha de nacimiento:</p>
     <input class="caja" type="text" name ="fecha" id ='fecha' placeholder="p. ej 2000-10-10">
-    <input class="botones"type="submit" value="Modificar fecha" name="modificarFecha" onclick="return modificarFecha();">
+    <input class="botones"type="submit" value="Modificar Fecha" name="modificarFecha" onclick="return modificarFecha();">
 
     <p>Email:</p>
     <input class="caja" type="text" name ="email" id='email' placeholder="p. ej xxxxxxx@gmail.com" ><br>
-    <input class="botones"type="submit" value="Modificar nombre" name="modificarEmail" onclick=" return modificarEmail();">
+    <input class="botones"type="submit" value="Modificar email" name="modificarEmail" onclick=" return modificarEmail();">
 <p>Contrasena:</p>
     <input class="caja" type="password" name ="contrasena" id='contrasena'><br>
     <input class="botones"type="submit" value="Modificar contraseña" name="modificarContrasena">
