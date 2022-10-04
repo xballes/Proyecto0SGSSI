@@ -22,15 +22,19 @@ $fecha=$_POST['fechanacimiento'];
 $actual=$_SESSION['DNI'];
 $actualNombre=$_SESSION['Usuario'];
 
-  
+
 $nombresql="UPDATE Perro SET Nombre='$nombre' WHERE Nombre='$nombreAcambiar' ";
 $razasql="UPDATE Perro SET Raza='$raza' WHERE Nombre='$nombreAcambiar'";
 $pesosql="UPDATE Perro SET Peso='$peso' WHERE Nombre='$nombreAcambiar'";
-$fechasql="UPDATE Perro SET FechaNacimiento='$fecha'Nombre='$nombreAcambiar'";
+$fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE 'Nombre='$nombreAcambiar'";
 
 if(!empty($nombre)){
+
     $ejecutar1=mysqli_query($conectar,$nombresql);
     if($ejecutar1){
+        echo "$nombre";
+        echo "$nombreAcambiar";
+
     echo("Nombre modificado correctamente");
     }
 }
@@ -38,8 +42,8 @@ if(!empty($raza)){
     $ejecutar2=mysqli_query($conectar,$razasql);
     if($ejecutar2){
     echo("Raza modificada correctamente");
-    
-    
+
+
     }
 }
 if(!empty($peso)){
