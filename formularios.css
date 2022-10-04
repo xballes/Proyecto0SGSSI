@@ -70,3 +70,10 @@
     background-color: #a22;
     color: #fff
   }
+  .ok {
+    text-align: center;
+    width: 100%;
+    padding: 12px;
+    background-color:forestgreen;
+    color: #fff
+  }
