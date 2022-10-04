@@ -17,7 +17,17 @@ session_start();
   <input class="botones" type="button" value="Modificar datos" name="modificar" onclick="location.href='modificarformulario.html'">
   <input class="botones" type="button" value="Añadir perro" name="añiadirperro" onclick="location.href='perroform.html'">
   <input class="botones" type="button" value="Mostrar lista" name="mostrar" onclick="location.href='lista.php' ">
+  <input class="botones" type="button" value="Cerrar sesión" name="cerrar" onclick="cerrarsesion();">
 
 </form>
 </body>
 </html>
+
+<?php
+function cerrarsesion(){
+  session_destroy();
+  header("Location:iniciosesion.html");
+  die();
+}
+
+?>

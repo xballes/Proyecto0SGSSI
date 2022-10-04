@@ -32,7 +32,16 @@ $lista=mysqli_query($conectar,$listaperros);
     <link rel="stylesheet" href="formularios.css">
     <title>Lista de Perros Registrados</title>
 </head>
-
+<script>
+    function confirmacion(){
+        var respuesta=confirm("¿Desea eliminar el registro seleccionado?");
+        if(respuesta==true){
+            return true;
+        }else{
+            return false;
+        }
+    }
+</script>
 <body>
     <div class="perros">
         <h2>Perros registrados</h2>
@@ -55,7 +64,7 @@ $lista=mysqli_query($conectar,$listaperros);
                         <th><?= $fila['FechaNacimiento'] ?></th>
                         <th><?= $fila['DNIDueño'] ?></th>
                         <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>" class="editar">Editar</a></th>
-                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>" class="eliminar" >Eliminar</a></th>
+                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
