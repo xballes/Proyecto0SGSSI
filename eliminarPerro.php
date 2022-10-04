@@ -14,7 +14,8 @@
  $sql="DELETE FROM Perro WHERE NombrePerro='$nombre'";
  $query=mysqli_query($conectar,$sql);
  if($query){
+    //falta la confirmacion del usuario.
+    echo "<script>if (!confirm('Desea eleminar elregistro')){ return; }</script>";
     echo 'Se ha eliminado a '.$nombre.' de la lista';
 }
-
 ?>
