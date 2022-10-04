@@ -13,7 +13,7 @@ $NombrePerro=$_GET['NombrePerro'];
 </head>
 <body>
   
-  <form class="formulario" action="modificacion.php?NombrePerro=<?=$NombrePerro?>"method="POST">
+  <form class="formulario" action="modificacionPerruna.php?NombrePerro=<?=$NombrePerro?>"method="POST">
     <h4>Modificar datos de:</h4>
     <h4> <?php echo $NombrePerro;?></h4>
     <input type="hidden" name="NombrePerro" value="<?= $NombrePerro?>">
@@ -27,7 +27,7 @@ $NombrePerro=$_GET['NombrePerro'];
     <input class="caja" type="text" name ="pesoPerro" id ='pesoPerro' placeholder="p. ej 40" >
 
     <p>Fecha de nacimiento:</p>
-    <input class="caja" type="text" name ="fechanacimiento" id ='fechanacimiento' placeholder="p. ej 2000-10-10">
+    <input class="caja" type="text" name ="fechaPerro" id ='fechaPerro' placeholder="p. ej 2000-10-10">
 
     <input class="botones"type="submit" value="Modificar datos" name="registrar.perro" onclick="comprobarCamposPerro();">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
