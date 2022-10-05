@@ -15,7 +15,7 @@ if(!$conectar){
 $nombrePerro=$_POST['nombrePerro'];
 $raza=$_POST['razaPerro'];
 $peso=$_POST['pesoPerro'];
-$fechanacimiento=$_POST['fechanacimiento'];
+$fechanacimiento=$_POST['fechaPerro'];
 
 $sesionactual=$_SESSION['Usuario'];
 
