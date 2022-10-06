@@ -21,14 +21,14 @@ $razasql="UPDATE Perro SET Raza='$raza' WHERE NombrePerro='$NombrePerro' ";
 $pesosql="UPDATE Perro SET Peso='$peso' WHERE NombrePerro='$NombrePerro' ";
 $fechasql="UPDATE Perro SET FechaNacimiento='$fecha'WHERE NombrePerro='$NombrePerro' ";
 
-if(!empty($NombrePerro)){
+//if(!empty($NombrePerro)){
 $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
 if($ejecutar1){
 /*Cerrar sesion*/
 echo $NombrePerro;
 echo("NombrePerro modificado correctamente");
 }
-}
+//}
 if(!empty($raza)){
 $ejecutar2=mysqli_query($conectar,$dnisql);
 if($ejecutar2){
