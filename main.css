@@ -75,18 +75,7 @@ body {
     font-size: 16px;
 }
 
-footer {
 
-    bottom: 80%;
-    color: aliceblue;
-    background-color:  rgb(99, 99, 202);
-}
-
-header {
-
-    background-color: rgb(99, 99, 202);
-    padding: 128px 16px;
-}
 
 .h1 {
     margin: auto;
