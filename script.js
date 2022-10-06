@@ -4,7 +4,7 @@ function comprobarCampos(){
         alert("El campo nombre esta vacio o contiene un numero");
         return false;
     }
-    else if(!(/^\d{8}$/.test(document.getElementById('telefono').value))){
+    else if(document.getElementById('telefono').value.length!=9){
         alert("El numero debe ser de 9 digitos");
         return false;
     }
@@ -31,18 +31,19 @@ else if(/^\d{8}[a-zA-Z]$/.test(document.getElementById('dni').value)) {
 }
 //-----------------------------------------------------------------------------------------------------------------
 function comprobarCamposPerro(){
-    if(!isNaN(document.getElementById('nombrePerro').value) && (document.getElementById('nombrePerro')).value.length>0){ //Comprueba si el campo es vacio o contiene numeros ()
+    if((!isNaN(document.getElementById('nombrePerro').value))){ //Comprueba si el campo es vacio o contiene numeros ()
         alert("El campo nombre esta vacio o contiene un numero");
         return false;
     }
-    else if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fechaPerro').value)) && (document.getElementById('fechaPerro').value.length>0)){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
+    else if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fechaPerro').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
         alert("La fecha introducida no sigue el patron: aaaa-mm-dd");
         return false;
    }
 }
+
 //-----------------------------------MODIFICAR--------------------------------------------
 function modificarNombre(){
-    if(!isNaN(document.getElementById('nombre').value)){
+    if(isNaN(document.getElementById('nombre').value)){
         alert("El campo nombre contiene un numero");
         return false;
        

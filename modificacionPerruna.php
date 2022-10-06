@@ -19,34 +19,30 @@ $fecha = $_POST['fechaPerro'];
 $NombrePerrosql="UPDATE Perro SET NombrePerro='$nombre' WHERE NombrePerro='$NombrePerro' ";
 $razasql="UPDATE Perro SET Raza='$raza' WHERE NombrePerro='$NombrePerro' ";
 $pesosql="UPDATE Perro SET Peso='$peso' WHERE NombrePerro='$NombrePerro' ";
-$fechasql="UPDATE Perro SET FechaNacimiento='$fecha'WHERE NombrePerro='$NombrePerro' ";
+$fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE NombrePerro='$NombrePerro' ";
 
 //if(!empty($NombrePerro)){
 $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
 if($ejecutar1){
-/*Cerrar sesion*/
-echo $NombrePerro;
-echo("NombrePerro modificado correctamente");
+    echo("Nombre del Perro modificado correctamente");
 }
 //}
 if(!empty($raza)){
-$ejecutar2=mysqli_query($conectar,$dnisql);
+$ejecutar2=mysqli_query($conectar,$razaql);
 if($ejecutar2){
     echo("Raza modificada correctamente");
     }
 }
 if(!empty($peso)){
-$ejecutar3=mysqli_query($conectar,$telefonosql);
-if($ejecutar3){
-/*Cerrar sesion*/
-echo("Peso modificado correctamente");
-}
+$ejecutar3=mysqli_query($conectar,$pesosql);
+    if($ejecutar3){
+        echo("Peso modificado correctamente");
+    }
 }
 if(!empty($fecha)){
-$ejecutar4=mysqli_query($conectar,$fechasql);
-if($ejecutar4){
-/*Cerrar sesion*/
-echo("Fecha modificada correctamente");
-}
-}
+    $ejecutar4=mysqli_query($conectar,$fechasql);
+        if($ejecutar4){
+            echo("Fecha modificada correctamente");
+        }
+    }
 ?>

@@ -43,7 +43,7 @@ $lista=mysqli_query($conectar,$listaperros);
     }
 </script>
 <body>
-    <div class="perros">
+    <div class="listaperros">
         <h2>Perros registrados</h2>
         <table>
             <thead>
@@ -69,7 +69,6 @@ $lista=mysqli_query($conectar,$listaperros);
                 <?php endwhile; ?>
             </tbody>
         </table>
-        
     </div>
 </body>
 

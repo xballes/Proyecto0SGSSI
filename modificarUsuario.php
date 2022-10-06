@@ -110,8 +110,6 @@ if(isset($contrasena)){
 </head>
 <body>
   
-  
-  
   <form action="modificarUsuario.php" class="formulario" method="POST" onsubmit="return comprobarCampos();">
     <h4>Modificar datos</h4>
     <h4>Rellena los campos que quieres que se modifiquen</h4>
