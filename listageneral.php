@@ -12,7 +12,7 @@ if(!$conectar){
             echo"No Se Encontro La Base De Datos";
         }
 }
-$listaperros="SELECT * FROM Perro"
+$listaperros="SELECT * FROM Perro";
 $lista=mysqli_query($conectar,$listaperros);
 ?>
 
