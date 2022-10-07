@@ -31,15 +31,50 @@ else if(/^\d{8}[a-zA-Z]$/.test(document.getElementById('dni').value)) {
 }
 //-----------------------------------------------------------------------------------------------------------------
 function comprobarCamposPerro(){
-    if((!isNaN(document.getElementById('nombrePerro').value))){ //Comprueba si el campo es vacio o contiene numeros ()
-        alert("El campo nombre esta vacio o contiene un numero");
-        return false;
+    if(document.getElementById('nombrePerro').value.length>0){
+        if((!isNaN(document.getElementById('nombrePerro').value))){ //Comprueba si el campo es vacio o contiene numeros ()
+            alert("El campo nombre esta vacio o contiene un numero");
+            return false;
+        }
     }
-    else if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fechaPerro').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
-        alert("La fecha introducida no sigue el patron: aaaa-mm-dd");
-        return false;
-   }
-}
+    else if(document.getElementById('fechaPerro').value.length>0){ 
+                if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fechaPerro').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
+                    alert("La fecha introducida no sigue el patron: aaaa-mm-dd");
+                    return false;
+                }
+            }
+    }
+
+//-------------------------------------------------------------------------------------------------------------------
+
+function registrarPerro(){
+        if((!isNaN(document.getElementById('nombreRegistro').value))){ //Comprueba si el campo es vacio o contiene numeros ()
+            alert("El campo nombre esta vacio o contiene un numero");
+            return false;
+        }
+            else if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fechaRegistro').value))){ //https://foroayuda.es/php-regex-para-verificar-la-fecha-esta-en-formato-aaaa-mm-dd/
+                            alert("La fecha introducida no sigue el patron: aaaa-mm-dd");
+                            return false;
+                    
+                    }else if(document.getElementById('pesoRegistro').value.length>3){
+                        alert("El peso introducido no es correcto");
+                                return false;
+                    }
+    }
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 //-----------------------------------MODIFICAR--------------------------------------------
 function modificarNombre(){

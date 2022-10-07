@@ -85,6 +85,9 @@
     width: 100%;
     table-layout: fixed;
 }
+.listaperros{
+  margin: 0 auto;
+}
 
 table tr {
     background-color: #f8f8f8;

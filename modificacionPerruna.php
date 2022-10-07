@@ -22,27 +22,43 @@ $pesosql="UPDATE Perro SET Peso='$peso' WHERE NombrePerro='$NombrePerro' ";
 $fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE NombrePerro='$NombrePerro' ";
 
 //if(!empty($NombrePerro)){
+    echo $NombrePerro;
+    echo $nombre;
+    echo $raza;
+    echo $peso;
+    echo $fecha;
+    
 $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
-if($ejecutar1){
-    echo("Nombre del Perro modificado correctamente");
+if(!isset($nombre)){
+    if($ejecutar1){   
+        ?> 
+        <h3 class="bien">Nombre modificado correctamente!</h3>
+          <?php
+    }
 }
 //}
-if(!empty($raza)){
+if(!isset($raza)){
 $ejecutar2=mysqli_query($conectar,$razaql);
 if($ejecutar2){
-    echo("Raza modificada correctamente");
+    ?> 
+    <h3 class="bien">¡Raza modificada correctamente!</h3>
+      <?php
     }
 }
-if(!empty($peso)){
+if(!isset($peso)){
 $ejecutar3=mysqli_query($conectar,$pesosql);
     if($ejecutar3){
-        echo("Peso modificado correctamente");
+        ?> 
+        <h3 class="bien">Peso modificado correctamente!</h3>
+          <?php
     }
 }
-if(!empty($fecha)){
+if(!isset($fecha)){
     $ejecutar4=mysqli_query($conectar,$fechasql);
         if($ejecutar4){
-            echo("Fecha modificada correctamente");
+            ?> 
+            <h3 class="bien">Fecha modificada correctamente!</h3>
+              <?php
         }
     }
 ?>

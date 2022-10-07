@@ -42,7 +42,6 @@ if(isset($nombrePerro,$raza,$peso,$fechanacimiento)){
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,19 +54,19 @@ if(isset($nombrePerro,$raza,$peso,$fechanacimiento)){
 </head>
 <body>
  
-  <form class="formulario" action="perroform.php" method="POST" onsubmit="return comprobarCamposPerro();">
+  <form class="formulario" action="perroform.php" method="POST" onsubmit="return registrarPerro();">
     <h4>Registrar perro</h4>
     <p>Nombre:</p>
-    <input class="caja" type="text" name="nombrePerro" id ='nombrePerro' placeholder="p. ej Rocky" required>
+    <input class="caja" type="text" name="nombrePerro" id ='nombreRegistro' placeholder="p. ej Rocky" required>
    
     <p>Raza:</p>
-    <input class="caja"type="text" name="razaPerro" id ='razaPerro' placeholder="p. ej Bulldog" required>
+    <input class="caja"type="text" name="razaPerro" id ='razaRegistro' placeholder="p. ej Bulldog" required>
 
     <p>Peso:</p>
-    <input class="caja" type="text" name ="pesoPerro" id ='pesoPerro' placeholder="p. ej 40" required>
+    <input class="caja" type="text" name ="pesoPerro" id ='pesoRegistro' placeholder="p. ej 40" required>
 
     <p>Fecha de nacimiento:</p>
-    <input class="caja" type="text" name ="fechaPerro" id ='fechaPerro' placeholder="p. ej 2000-10-10" required>
+    <input class="caja" type="text" name ="fechaPerro" id ='fechaRegistro' placeholder="p. ej 2000-10-10" required>
 
     <input class="botones"type="submit" value="Registrar perro" name="registrar.perro">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
