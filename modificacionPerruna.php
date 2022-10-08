@@ -21,39 +21,61 @@ $razasql="UPDATE Perro SET Raza='$raza' WHERE NombrePerro='$NombrePerro' ";
 $pesosql="UPDATE Perro SET Peso='$peso' WHERE NombrePerro='$NombrePerro' ";
 $fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE NombrePerro='$NombrePerro' ";
 
-//if(!empty($NombrePerro)){
-    echo $NombrePerro;
-    echo $nombre;
-    echo $raza;
-    echo $peso;
-    echo $fecha;
-    
-$ejecutar1=mysqli_query($conectar,$NombrePerrosql);
-if(!isset($nombre)){
+$razasql2="UPDATE Perro SET Raza='$raza' WHERE NombrePerro='$nombre' ";
+$pesosql2="UPDATE Perro SET Peso='$peso' WHERE NombrePerro='$nombre' ";
+$fechasql2="UPDATE Perro SET FechaNacimiento='$fecha' WHERE NombrePerro='$nombre' ";
+
+if(!empty($nombre)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
+    $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
     if($ejecutar1){   
         ?> 
         <h3 class="bien">Nombre modificado correctamente!</h3>
           <?php
+        if(!empty($raza)){
+            $ejecutar2=mysqli_query($conectar,$razasql2);
+            if($ejecutar2){
+            ?> 
+            <h3 class="bien">¡Raza modificada correctamente!</h3>
+                <?php
+            }
+        }
+        if(!empty($peso)){
+            $ejecutar3=mysqli_query($conectar,$pesosql2);
+            if($ejecutar3){
+                ?> 
+                <h3 class="bien">Peso modificado correctamente!</h3>
+                  <?php
+            }
+        }
+        if(!empty($fecha)){
+            $ejecutar4=mysqli_query($conectar,$fechasql2);
+                if($ejecutar4){
+                    ?> 
+                    <h3 class="bien">Fecha modificada correctamente!</h3>
+                      <?php
+                }
+            }
     }
-}
-//}
-if(!isset($raza)){
-$ejecutar2=mysqli_query($conectar,$razaql);
-if($ejecutar2){
+
+}else{
+if(!empty($raza)){
+    $ejecutar2=mysqli_query($conectar,$razasql);
+    if($ejecutar2){
     ?> 
     <h3 class="bien">¡Raza modificada correctamente!</h3>
-      <?php
+        <?php
     }
 }
-if(!isset($peso)){
-$ejecutar3=mysqli_query($conectar,$pesosql);
+
+if(!empty($peso)){
+    $ejecutar3=mysqli_query($conectar,$pesosql);
     if($ejecutar3){
         ?> 
         <h3 class="bien">Peso modificado correctamente!</h3>
           <?php
     }
 }
-if(!isset($fecha)){
+if(!empty($fecha)){
     $ejecutar4=mysqli_query($conectar,$fechasql);
         if($ejecutar4){
             ?> 
@@ -61,4 +83,5 @@ if(!isset($fecha)){
               <?php
         }
     }
+}
 ?>

@@ -33,7 +33,7 @@ $actualNombre=$_SESSION['Usuario'];
     $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$actual' ";
 
 
-if(isset($nombre)){
+if(!empty($nombre)){
     $ejecutar1=mysqli_query($conectar,$nombresql);
     if($ejecutar1){
     /*Cerrar sesion*/
@@ -49,7 +49,7 @@ if(isset($nombre)){
 
     }
 }
-if(isset($dni)){
+if(!empty($dni)){
     $ejecutar2=mysqli_query($conectar,$dnisql);
     if($ejecutar2){
     $_SESSION['DNI']=$dni;
@@ -59,7 +59,7 @@ if(isset($dni)){
      
     }
 }
-if(isset($telefono)){
+if(!empty($telefono)){
     $ejecutar3=mysqli_query($conectar,$telefonosql);
     if($ejecutar3){
     /*Cerrar sesion*/
@@ -68,7 +68,7 @@ if(isset($telefono)){
       <?php
     }
 }
-if(isset($fecha)){
+if(!empty($fecha)){
     $ejecutar4=mysqli_query($conectar,$fechasql);
     if($ejecutar4){
     /*Cerrar sesion*/
@@ -77,7 +77,7 @@ if(isset($fecha)){
       <?php
     }
 }
-if(isset($email)){
+if(!empty($email)){
     $ejecutar5=mysqli_query($conectar,$emailsql);
     if($ejecutar5){
     /*Cerrar sesion*/
@@ -86,7 +86,7 @@ if(isset($email)){
             <?php
     }
 }
-if(isset($contrasena)){
+if(!empty($contrasena)){
     $ejecutar6=mysqli_query($conectar,$contrasenasql);
     if($ejecutar6){
     /*Cerrar sesion*/
@@ -110,7 +110,7 @@ if(isset($contrasena)){
 </head>
 <body>
   
-  <form action="modificarUsuario.php" class="formulario" method="POST" onsubmit="return comprobarCampos();">
+  <form action="modificarUsuario.php" class="formulario" method="POST" onsubmit="return modificarUsuario();">
     <h4>Modificar datos</h4>
     <h4>Rellena los campos que quieres que se modifiquen</h4>
     <p>Nombre:</p>

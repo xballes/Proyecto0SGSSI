@@ -16,7 +16,7 @@ $NombrePerro=$_GET['NombrePerro'];
   <form class="formulario" action="modificacionPerruna.php?NombrePerro=<?=$NombrePerro?>"method="POST" onsubmit="return comprobarCamposPerro();">
     <h4>Modificar datos de:</h4>
     <h4> <?php echo $NombrePerro;?></h4>
-    <input type="hidden" name="NombrePerro" value="<?= $NombrePerro?>">
+    <input type="hidden" name="NombrePerro" value="<?=$NombrePerro?>">
     <p>Nombre:</p>
     <input class="caja" type="text" name="nombrePerro" id ='nombrePerro' placeholder="p. ej Rocky">
 
