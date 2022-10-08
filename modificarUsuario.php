@@ -32,6 +32,12 @@ $actualNombre=$_SESSION['Usuario'];
     $emailsql="UPDATE Usuario SET Email='$email' WHERE DNI='$actual' ";
     $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$actual' ";
 
+    $nombresql2="UPDATE Usuario SET Nombre='$nombre' WHERE DNI='$dni' ";
+    $telefonosql2="UPDATE Usuario SET Telefono='$telefono' WHERE DNI='$dni' ";
+    $fechasql2="UPDATE Usuario SET Fecha='$fecha' WHERE DNI='$dni' ";
+    $emailsql2="UPDATE Usuario SET Email='$email' WHERE DNI='$dni' ";
+    $contrasenasql2="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$dni' ";
+
 
 if(!empty($nombre)){
     $ejecutar1=mysqli_query($conectar,$nombresql);
@@ -49,6 +55,7 @@ if(!empty($nombre)){
 
     }
 }
+//-------------------------------------------------------------------------------
 if(!empty($dni)){
     $ejecutar2=mysqli_query($conectar,$dnisql);
     if($ejecutar2){
@@ -56,9 +63,45 @@ if(!empty($dni)){
     ?> 
     <h3 class="bien">¡DNI modificado correctamente!</h3>
       <?php
-     
+     if(!empty($telefono)){
+      $ejecutar3=mysqli_query($conectar,$telefonosql2);
+      if($ejecutar3){
+      /*Cerrar sesion*/
+      ?> 
+      <h3 class="bien">¡Telefono modificado correctamente!</h3>
+        <?php
+      }
+  }
+  if(!empty($fecha)){
+      $ejecutar4=mysqli_query($conectar,$fechasql2);
+      if($ejecutar4){
+      /*Cerrar sesion*/
+      ?> 
+      <h3 class="bien">¡Fecha modificada correctamente!</h3>
+        <?php
+      }
+  }
+  if(!empty($email)){
+      $ejecutar5=mysqli_query($conectar,$emailsql2);
+      if($ejecutar5){
+      /*Cerrar sesion*/
+      ?> 
+            <h3 class="bien">¡Email modificado correctamente!</h3>
+              <?php
+      }
+  }
+  if(!empty($contrasena)){
+      $ejecutar6=mysqli_query($conectar,$contrasenasql2);
+      if($ejecutar6){
+      /*Cerrar sesion*/
+      ?> 
+            <h3 class="bien">¡Contraseña modificada correctamente!</h3>
+              <?php
+      }
+  }
     }
-}
+}else{
+//---------------------------------------------------------------------------
 if(!empty($telefono)){
     $ejecutar3=mysqli_query($conectar,$telefonosql);
     if($ejecutar3){
@@ -94,6 +137,7 @@ if(!empty($contrasena)){
           <h3 class="bien">¡Contraseña modificada correctamente!</h3>
             <?php
     }
+}
 }
 ?>
 
