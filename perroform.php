@@ -16,15 +16,15 @@ $nombrePerro=$_POST['nombrePerro'];
 $raza=$_POST['razaPerro'];
 $peso=$_POST['pesoPerro'];
 $fechanacimiento=$_POST['fechaPerro'];
-
 $sesionactual=$_SESSION['Usuario'];
+$dniactual=$_SESSION['DNI'];
 
-$dniactual="SELECT DNI from Usuario where Nombre='$sesionactual'";
+/*$dniactual="SELECT DNI from Usuario where Nombre='$sesionactual'";
 $ejecutar=mysqli_query($conectar,$dniactual);
-$dnidueno=mysqli_fetch_array($ejecutar)[0];
+$dnidueno=mysqli_fetch_array($ejecutar)[0];*/
 
 
-$registrar="INSERT INTO Perro VALUES('$nombrePerro','$raza','$peso','$fechanacimiento','$dnidueno')";
+$registrar="INSERT INTO Perro VALUES('$nombrePerro','$raza','$peso','$fechanacimiento','$dniactual')";
 $registro=mysqli_query($conectar,$registrar);
 
 if(isset($nombrePerro,$raza,$peso,$fechanacimiento)){

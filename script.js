@@ -22,6 +22,7 @@ else if(/^\d{8}[a-zA-Z]$/.test(document.getElementById('dni').value)) {
     var c = document.getElementById('dni').value.substr(8,1);
      if(!(c.toUpperCase() == 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(n%23))){
         alert('DNI erroneo');
+        return false;
     }
     }else{
         alert('DNI erroneo');
@@ -75,6 +76,7 @@ function modificarUsuario(){
             var c = document.getElementById('dni').value.substr(8,1);
             if(!(c.toUpperCase() == 'TRWAGMYFPDXBNJZSQVHLCKET'.charAt(n%23))){
                 alert('DNI erroneo');
+                return false;
             }
             }else{
                 alert('DNI erroneo');

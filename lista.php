@@ -12,12 +12,13 @@ if(!$conectar){
             echo"No Se Encontro La Base De Datos";
         }
 }
-$sesionactual=$_SESSION['Usuario'];
+/*$sesionactual=$_SESSION['Usuario'];
 $dniactual="SELECT DNI from Usuario where Nombre='$sesionactual'";
 
 $sql=mysqli_query($conectar,$dniactual);
 $dni=mysqli_fetch_array($sql)[0];
-
+*/
+$dni=$_SESSION['DNI'];
 $listaperros="SELECT * FROM Perro where DNIDueño='$dni' ";
 $lista=mysqli_query($conectar,$listaperros);
 ?>
@@ -63,8 +64,8 @@ $lista=mysqli_query($conectar,$listaperros);
                         <th><?= $fila['Peso'] ?></th>
                         <th><?= $fila['FechaNacimiento'] ?></th>
                         <th><?= $fila['DNIDueño'] ?></th>
-                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>" class="editar">Editar</a></th>
-                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
+                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&DNIDueño=<?=$fila['DNIDueño']?>" class="editar">Editar</a></th>
+                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>&DNIDueño=<?=$fila['DNIDueño']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
