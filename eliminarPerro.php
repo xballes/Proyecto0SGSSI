@@ -11,7 +11,8 @@
  }
 
  $nombre=$_GET["NombrePerro"];
- $sql="DELETE FROM Perro WHERE NombrePerro='$nombre'";
+ $dni=$_GET["DNIDueño"];
+ $sql="DELETE FROM Perro WHERE (NombrePerro='$nombre' AND DNIDueño='$dni')";
  $query=mysqli_query($conectar,$sql);
  if($query){
     echo 'Se ha eliminado a '.$nombre.' de la lista';
