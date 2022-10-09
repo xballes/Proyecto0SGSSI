@@ -15,6 +15,7 @@ nav{
     position: fixed;
     top: 0;
     z-index: 1030; 
+    
 }
 
 nav a {
@@ -101,7 +102,6 @@ body {
     justify-content: center;
     align-items: center;
     background-color: cornsilk;
-
 
 }
 
