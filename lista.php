@@ -19,7 +19,7 @@ $sql=mysqli_query($conectar,$dniactual);
 $dni=mysqli_fetch_array($sql)[0];
 */
 $dni=$_SESSION['DNI'];
-$listaperros="SELECT * FROM Perro where DNIDueño='$dni' ";
+$listaperros="SELECT * FROM Perro";
 $lista=mysqli_query($conectar,$listaperros);
 ?>
 
