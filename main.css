@@ -27,6 +27,11 @@
 
 }
 
+.botones {
+    text-align: center;
+    margin-top: 10px;
+}
+
 
 .title {
     font-size: 40px;
