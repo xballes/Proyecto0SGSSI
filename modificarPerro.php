@@ -132,7 +132,4 @@ if(!empty($nombre)){ //Si cambia el nombre, las demas instrucciones tienen que u
 
         }
 }
-
-  
-//header("Refresh:2");
 ?>

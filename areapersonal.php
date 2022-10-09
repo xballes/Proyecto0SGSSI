@@ -16,19 +16,8 @@ session_start();
   <h2> Bienvenido <?php echo $_SESSION['Usuario']?> !</h2>
   <h2> Que deseas hacer? </h2>
   <input class="botones" type="button" value="Modificar datos" name="modificar" onclick="location.href='modificarUsuario.php'">
-  <input class="botones" type="button" value="Añadir perro" name="añiadirperro" onclick="location.href='perroform.php'">
-  <input class="botones" type="button" value="Mostrar lista" name="mostrar" onclick="location.href='lista.php' ">
-  <input class="botones" type="button" value="Cerrar sesión" name="cerrar" onclick="cerrarsesion();">
+  <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.html'">
 
 </form>
 </body>
 </html>
-
-<?php
-function cerrarsesion(){
-  session_destroy();
-  header("Location:iniciosesion.html");
-  die();
-}
-
-?>
