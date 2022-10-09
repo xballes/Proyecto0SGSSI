@@ -69,10 +69,11 @@ $lista=mysqli_query($conectar,$listaperros);
                     </tr>
                 <?php endwhile; ?>
             </tbody>
+           
         </table>
-        <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.html'">
+        
     </div>
-    
+    <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.html'">
 </body>
 
 
