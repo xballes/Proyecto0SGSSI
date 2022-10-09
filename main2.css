@@ -94,16 +94,17 @@ body {
 }
 
 .container {
-    max-width: 1200px;
-    margin: auto;
-    background: #beebf8;
-    overflow: auto;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: cornsilk;
+
+
 }
 
-.desc {
-    padding: 15px;
-    text-align: center;
-}
 
 .logo{
     position:relative;
