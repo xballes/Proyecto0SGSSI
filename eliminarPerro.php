@@ -1,5 +1,6 @@
 <?php
  $conectar=@mysqli_connect("db","admin","test","database");
+ ob_start();
  //verificamos la conexion
  if(!$conectar){
      echo"No Se Pudo Conectar Con El Servidor";
@@ -16,5 +17,7 @@
  $query=mysqli_query($conectar,$sql);
  if($query){
     echo 'Se ha eliminado a '.$nombre.' de la lista';
+    header("Location:lista.php");
+    exit(); 
 }
 ?>
