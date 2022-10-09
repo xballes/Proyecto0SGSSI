@@ -100,34 +100,39 @@ if(!empty($nombre)){ //Si cambia el nombre, las demas instrucciones tienen que u
                       <?php
                 }
             }
+     header("Location:lista.php");
+     exit();       
     }
 }else{  //Si no se ha modificado el nombre, las instrucciones no cambian
 
-if(!empty($raza)){
-    $ejecutar2=mysqli_query($conectar,$razasql);
-    if($ejecutar2){
-    ?> 
-    <h3 class="bien">¡Raza modificada correctamente!</h3>
-        <?php
-    }
-}
-
-if(!empty($peso)){
-    $ejecutar3=mysqli_query($conectar,$pesosql);
-    if($ejecutar3){
+    if(!empty($raza)){
+        $ejecutar2=mysqli_query($conectar,$razasql);
+        if($ejecutar2){
         ?> 
-        <h3 class="bien">Peso modificado correctamente!</h3>
-          <?php
-    }
-}
-if(!empty($fecha)){
-    $ejecutar4=mysqli_query($conectar,$fechasql);
-        if($ejecutar4){
-            ?> 
-            <h3 class="bien">Fecha modificada correctamente!</h3>
-              <?php
+        <h3 class="bien">¡Raza modificada correctamente!</h3>
+            <?php
         }
     }
+
+    if(!empty($peso)){
+        $ejecutar3=mysqli_query($conectar,$pesosql);
+        if($ejecutar3){
+            ?> 
+            <h3 class="bien">Peso modificado correctamente!</h3>
+            <?php
+        }
+    }
+    if(!empty($fecha)){
+        $ejecutar4=mysqli_query($conectar,$fechasql);
+            if($ejecutar4){
+                ?> 
+                <h3 class="bien">Fecha modificada correctamente!</h3>
+                <?php
+            }
+
+        }
 }
+
+  
 //header("Refresh:2");
 ?>
