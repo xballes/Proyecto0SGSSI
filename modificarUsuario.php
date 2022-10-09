@@ -142,7 +142,7 @@ $actualNombre=$_SESSION['Usuario'];
 </head>
 <body>
   
-  <form action="modificarUsuario.php" class="formulario" method="POST" onsubmit="return modificarUsuario();">
+<form class="formulario" action="modificarUsuario.php"method="POST" onsubmit="return modUsuario();">
     <h4>Modificar datos</h4>
     <h4>Rellena los campos que quieres que se modifiquen</h4>
     <p>Nombre:</p>
