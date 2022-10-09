@@ -16,11 +16,12 @@ $nombrePerro=$_POST['nombrePerro'];
 $raza=$_POST['razaPerro'];
 $peso=$_POST['pesoPerro'];
 $fechanacimiento=$_POST['fechaPerro'];
+$paisorigen=$_POST['paisorigen'];
 $sesionactual=$_SESSION['Usuario'];
 //$dniactual=$_SESSION['DNI'];
 
 
-$registrar="INSERT INTO Perro VALUES('$nombrePerro','$raza','$peso','$fechanacimiento','$dniactual')";
+$registrar="INSERT INTO Perro VALUES('$nombrePerro','$raza','$peso','$fechanacimiento','$paisorigen')";
 $registro=mysqli_query($conectar,$registrar);
 
 if(isset($nombrePerro,$raza,$peso,$fechanacimiento)){
