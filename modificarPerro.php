@@ -31,6 +31,9 @@ ob_start();
     <p>Fecha de nacimiento:</p>
     <input class="caja" type="text" name ="fechaPerro" id ='fechaPerro' placeholder="p. ej 2000-10-10">
 
+    <p>Pais de origen:</p>
+    <input class="caja" type="text" name ="paisorigen" id ='paisorigen' placeholder="p. ej Francia">
+
     <input class="botones"type="submit" value="Modificar datos" name="registrar.perro">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
 

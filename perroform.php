@@ -24,7 +24,7 @@ $sesionactual=$_SESSION['Usuario'];
 $registrar="INSERT INTO Perro VALUES('$nombrePerro','$raza','$peso','$fechanacimiento','$paisorigen')";
 $registro=mysqli_query($conectar,$registrar);
 
-if(isset($nombrePerro,$raza,$peso,$fechanacimiento)){
+if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
   if(!$registro){
       ?>      
           <h3 class="bad">¡Ha ocurrido un error en el registro,vuelve a introducir los datos!</h3>
@@ -64,6 +64,9 @@ if(isset($nombrePerro,$raza,$peso,$fechanacimiento)){
 
     <p>Fecha de nacimiento:</p>
     <input class="caja" type="text" name ="fechaPerro" id ='fechaRegistro' placeholder="p. ej 2000-10-10" required>
+
+    <p>Pais de Origen:</p>
+    <input class="caja" type="text" name ="paisorigen" id ='paisorigen' placeholder="p. ej Francia" required>
 
     <input class="botones"type="submit" value="Registrar perro" name="registrar.perro">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
