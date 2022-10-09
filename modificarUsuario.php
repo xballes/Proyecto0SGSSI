@@ -41,6 +41,7 @@ session_start();
   
     <input class="botones"type="submit" value="Modificar datos" name="modificarDatos">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
+    <input class="botones"type="button" value="Volver al area" name="volver.area" onclick="location.href='areapersonal.php'">
 </form>
 </body>
 </html>

@@ -81,10 +81,10 @@ $paissql="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePer
                   
             }
         }
-               
         if(!empty($raza)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
             $ejecutar2=mysqli_query($conectar,$razasql);
                 if($ejecutar2){
+                    echo $NombrePerro;
                    
     
                 }
@@ -115,10 +115,10 @@ $paissql="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePer
                 
                             }
                     }
-    if($ejecutar1 || $ejecutar2 || $ejecutar3 || $ejecutar4 || $ejecutar5){
+    /*if($ejecutar1 || $ejecutar2 || $ejecutar3 || $ejecutar4 || $ejecutar5){
         header("Location:lista.php");
         exit();
-    }
+    }*/
                     
                     
 
