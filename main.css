@@ -46,8 +46,43 @@
 
 .horario{
 
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.localizacion {
     font-size: 30px;
     font-weight: bolder;
+}
+
+.contacto {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+.donacion {
+    font-size: 30px;
+    font-weight: bolder;
+}       
+
+.extra {
+    font-size: 30px;
+    font-weight: bolder;
+}
+
+
+
+.botones {
+    
+    padding: 15px 32px;
+    display: inline-block;
+    font-size: 24px;
+    border: none;
+    border-radius: 2px;
+    text-align: center;
+    margin: auto;
+    margin-left: 40%;
+    width: 250px;
 }
 
 
