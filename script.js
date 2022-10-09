@@ -63,7 +63,7 @@ function registrarPerro(){
                     }
     }
 //-----------------------------------MODIFICAR--------------------------------------------
-function modUsuario(){
+function modificarUsuarios(){
     if(document.getElementById('nombreMod').value.lentgh>0){
         if(!isNaN(document.getElementById('nombreMod').value)){
             alert("El campo nombre contiene un numero");

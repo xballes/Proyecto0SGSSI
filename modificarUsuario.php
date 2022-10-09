@@ -13,12 +13,12 @@ if(!$conectar){
         }
 }   
 //recuperar las variables
-$nombre=$_POST['nombreMod'];
-$dni=$_POST['dniMod'];
-$telefono=$_POST['telefonoMod'];
-$fecha=$_POST['fechaMod'];
-$email=$_POST['emailMod'];
-$contrasena=$_POST['contrasenaMod'];
+$nombre=$_POST['nombre'];
+$dni=$_POST['dni'];
+$telefono=$_POST['telefono'];
+$fecha=$_POST['fecha'];
+$email=$_POST['email'];
+$contrasena=$_POST['contrasena'];
 $actual=$_SESSION['DNI'];
 $actualNombre=$_SESSION['Usuario'];
 
@@ -38,96 +38,114 @@ $actualNombre=$_SESSION['Usuario'];
     $emailsql2="UPDATE Usuario SET Email='$email' WHERE DNI='$dni' ";
     $contrasenasql2="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$dni' ";
 
-    if(!empty($dni)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
-      $ejecutar1=mysqli_query($conectar,$dnisql);
-      if($ejecutar1){   
-          ?> 
-          <h3 class="bien">DNI modificado correctamente!</h3>
-            <?php
-          if(!empty($nombre)){
-              $ejecutar2=mysqli_query($conectar,$nombresql2);
-              if($ejecutar2){
-              ?> 
-              <h3 class="bien">Nombre modificado correctamente!</h3>
-                  <?php
-              }
-          }
-          if(!empty($telefono)){
-              $ejecutar3=mysqli_query($conectar,$telefonosql2);
-              if($ejecutar3){
-                  ?> 
-                  <h3 class="bien">Telefono modificado correctamente!</h3>
-                    <?php
-              }
-          }
-          if(!empty($fecha)){
-              $ejecutar4=mysqli_query($conectar,$fechasql2);
-                  if($ejecutar4){
-                      ?> 
-                      <h3 class="bien">Fecha modificada correctamente!</h3>
-                        <?php
-                  }
-              }
-              if(!empty($email)){
-                $ejecutar5=mysqli_query($conectar,$emailsql2);
-                    if($ejecutar5){
-                        ?> 
-                        <h3 class="bien">Email modificado correctamente!</h3>
-                          <?php
-                    }
-                }
-                if(!empty($contrasena)){
-                  $ejecutar6=mysqli_query($conectar,$contrasenasql2);
-                      if($ejecutar6){
-                          ?> 
-                          <h3 class="bien">Contrasena modificada correctamente!</h3>
-                            <?php
-                      }
-                  }
-        }
-      }else{
-          if(!empty($nombre)){
-            $ejecutar2=mysqli_query($conectar,$nombresql);
-            if($ejecutar2){
-            ?> 
-            <h3 class="bien">Nombre modificado correctamente!</h3>
-                <?php
-            }
-        }
-        if(!empty($telefono)){
-            $ejecutar3=mysqli_query($conectar,$telefonosql);
-            if($ejecutar3){
-                ?> 
-                <h3 class="bien">Telefono modificado correctamente!</h3>
-                  <?php
-            }
-        }
-        if(!empty($fecha)){
-            $ejecutar4=mysqli_query($conectar,$fechasql);
-                if($ejecutar4){
-                    ?> 
-                    <h3 class="bien">Fecha modificada correctamente!</h3>
-                      <?php
-                }
-            }
-            if(!empty($email)){
-              $ejecutar5=mysqli_query($conectar,$emailsql);
-                  if($ejecutar5){
-                      ?> 
-                      <h3 class="bien">Email modificado correctamente!</h3>
-                        <?php
-                  }
-              }
-              if(!empty($contrasena)){
-                $ejecutar6=mysqli_query($conectar,$contrasenasql);
-                    if($ejecutar6){
-                        ?> 
-                        <h3 class="bien">Contrasena modificada correctamente!</h3>
-                          <?php
-                    }
-                }
 
-        }               
+
+//-------------------------------------------------------------------------------
+if(!empty($dni)){
+    $ejecutar2=mysqli_query($conectar,$dnisql);
+    if($ejecutar2){
+    $_SESSION['DNI']=$dni;
+    ?> 
+    <h3 class="bien">¡DNI modificado correctamente!</h3>
+      <?php
+     if(!empty($nombre)){
+        $ejecutar1=mysqli_query($conectar,$nombresql2);
+        if($ejecutar1){
+        /*Cerrar sesion*/
+        $_SESSION['Usuario']=$nombre;
+        ?> 
+        <h3 class="bien">¡Nombre modificado correctamente!</h3>
+          <?php
+    }
+}
+     if(!empty($telefono)){
+      $ejecutar3=mysqli_query($conectar,$telefonosql2);
+      if($ejecutar3){
+      /*Cerrar sesion*/
+      ?> 
+      <h3 class="bien">¡Telefono modificado correctamente!</h3>
+        <?php
+      }
+  }
+  if(!empty($fecha)){
+      $ejecutar4=mysqli_query($conectar,$fechasql2);
+      if($ejecutar4){
+      /*Cerrar sesion*/
+      ?> 
+      <h3 class="bien">¡Fecha modificada correctamente!</h3>
+        <?php
+      }
+  }
+  if(!empty($email)){
+      $ejecutar5=mysqli_query($conectar,$emailsql2);
+      if($ejecutar5){
+      /*Cerrar sesion*/
+      ?> 
+            <h3 class="bien">¡Email modificado correctamente!</h3>
+              <?php
+      }
+  }
+  if(!empty($contrasena)){
+      $ejecutar6=mysqli_query($conectar,$contrasenasql2);
+      if($ejecutar6){
+      /*Cerrar sesion*/
+      ?> 
+            <h3 class="bien">¡Contraseña modificada correctamente!</h3>
+              <?php
+      }
+  }
+    }
+}else{
+//---------------------------------------------------------------------------
+    if(!empty($nombre)){
+    $ejecutar1=mysqli_query($conectar,$nombresql);
+    if($ejecutar1){
+    /*Cerrar sesion*/
+    $_SESSION['Usuario']=$nombre;
+    ?> 
+    <h3 class="bien">¡Nombre modificado correctamente!</h3>
+      <?php
+    }
+}
+
+    if(!empty($telefono)){
+        $ejecutar3=mysqli_query($conectar,$telefonosql);
+        if($ejecutar3){
+        /*Cerrar sesion*/
+        ?> 
+        <h3 class="bien">¡Telefono modificado correctamente!</h3>
+        <?php
+        }
+    }
+    if(!empty($fecha)){
+        $ejecutar4=mysqli_query($conectar,$fechasql);
+        if($ejecutar4){
+        /*Cerrar sesion*/
+        ?> 
+        <h3 class="bien">¡Fecha modificada correctamente!</h3>
+        <?php
+        }
+    }
+    if(!empty($email)){
+        $ejecutar5=mysqli_query($conectar,$emailsql);
+        if($ejecutar5){
+        /*Cerrar sesion*/
+        ?> 
+            <h3 class="bien">¡Email modificado correctamente!</h3>
+                <?php
+        }
+    }
+    if(!empty($contrasena)){
+        $ejecutar6=mysqli_query($conectar,$contrasenasql);
+        if($ejecutar6){
+        /*Cerrar sesion*/
+        ?> 
+            <h3 class="bien">¡Contraseña modificada correctamente!</h3>
+                <?php
+        }
+    }
+    }
+
 ?>
 
 <!DOCTYPE html>
@@ -142,30 +160,30 @@ $actualNombre=$_SESSION['Usuario'];
 </head>
 <body>
   
-<form class="formulario" action="modificarUsuario.php"method="POST" onsubmit="return modUsuario();">
+  <form action="modificarUsuario.php" class="formulario" method="POST" onsubmit="return modificarUsuario();">
     <h4>Modificar datos</h4>
     <h4>Rellena los campos que quieres que se modifiquen</h4>
     <p>Nombre:</p>
-    <input class="caja" type="text" name="nombreMod" id ='nombreMod' placeholder="p. ej Ander">
+    <input class="caja" type="text" name="nombre" id ='nombreMod' placeholder="p. ej Ander">
   
       
     <p>DNI:</p>
-    <input class="caja"type="text" name="dniMod" id ='dniMod' placeholder="p. ej XXXXXXXX-A">
+    <input class="caja"type="text" name="dni" id ='dniMod' placeholder="p. ej XXXXXXXX-A">
   
 
     <p>Telefono:</p>
-    <input class="caja" type="text" name ="telefonoMod" id ='telefonoMod' placeholder="p. ej 123456789">
+    <input class="caja" type="text" name ="telefono" id ='telefonoMod' placeholder="p. ej 123456789">
 
 
     <p>Fecha de nacimiento:</p>
-    <input class="caja" type="text" name ="fechaMod" id ='fechaMod' placeholder="p. ej 2000-10-10">
+    <input class="caja" type="text" name ="fecha" id ='fechaMod' placeholder="p. ej 2000-10-10">
   
 
     <p>Email:</p>
-    <input class="caja" type="text" name ="emailMod" id='emailMod' placeholder="p. ej xxxxxxx@gmail.com" ><br>
+    <input class="caja" type="text" name ="email" id='emailMod' placeholder="p. ej xxxxxxx@gmail.com" ><br>
  
 <p>Contrasena:</p>
-    <input class="caja" type="password" name ="contrasenaMod" id='contrasenaMod'><br>
+    <input class="caja" type="password" name ="contrasena" id='contrasenaMod'><br>
   
     <input class="botones"type="submit" value="Modificar datos" name="modificarDatos">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
