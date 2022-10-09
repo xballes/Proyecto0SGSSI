@@ -66,6 +66,7 @@ if(isset($nombrePerro,$raza,$peso,$fechanacimiento)){
 
     <input class="botones"type="submit" value="Registrar perro" name="registrar.perro">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
+    <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.html'">
     
 </form>
 </body>
