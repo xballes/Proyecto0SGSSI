@@ -19,8 +19,6 @@
     margin-bottom: 20px;
 }
 
-
-
 .contenedor p{
 
     font-size: 18px;
@@ -41,6 +39,11 @@
     font-weight: bolder;
 }
 
+.horario{
+
+    font-size: 30px;
+    font-weight: bolder;
+}
 
 
 nav{
