@@ -52,7 +52,8 @@ ob_start();
  }
 
 $NombrePerro=$_GET["NombrePerro"];
-$DNIDueño=$_GET["DNIDueño"];
+$fecha=$_GET["FechaNacimiento"];
+$pais=$_GET["PaisOrigen"];
 
 $nombre=$_POST['nombrePerro'];
 $raza = $_POST['razaPerro'];
@@ -60,14 +61,14 @@ $peso = $_POST['pesoPerro'];
 $fecha = $_POST['fechaPerro'];
 
 
-$NombrePerrosql="UPDATE Perro SET NombrePerro='$nombre' WHERE (NombrePerro='$NombrePerro' AND DNIDueño='$DNIDueño')";
-$razasql="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$NombrePerro'AND DNIDueño='$DNIDueño')";
-$pesosql="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$NombrePerro'AND DNIDueño='$DNIDueño')";
-$fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND DNIDueño='$DNIDueño')";
+$NombrePerrosql="UPDATE Perro SET NombrePerro='$nombre' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$razasql="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$pesosql="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 
-$razasql2="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$nombre' AND DNIDueño='$DNIDueño')";
-$pesosql2="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$nombre'AND DNIDueño='$DNIDueño')";
-$fechasql2="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$nombre'AND DNIDueño='$DNIDueño')";
+$razasql2="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$nombre' AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$pesosql2="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$nombre'AND  PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$fechasql2="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$nombre'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 
 if(!empty($nombre)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
     $ejecutar1=mysqli_query($conectar,$NombrePerrosql);

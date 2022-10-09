@@ -53,7 +53,7 @@ $lista=mysqli_query($conectar,$listaperros);
                     <th>Raza</th>
                     <th>Peso</th>
                     <th>Fecha De Nacimiento</th>
-                    <th>DNI Dueño</th>
+                    <th>Pais de Origen</th>
                 </tr>
             </thead>
             <tbody>
@@ -63,9 +63,9 @@ $lista=mysqli_query($conectar,$listaperros);
                         <th><?= $fila['Raza'] ?></th>
                         <th><?= $fila['Peso'] ?></th>
                         <th><?= $fila['FechaNacimiento'] ?></th>
-                        <th><?= $fila['DNIDueño'] ?></th>
-                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&DNIDueño=<?=$fila['DNIDueño']?>" class="editar">Editar</a></th>
-                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>&DNIDueño=<?=$fila['DNIDueño']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
+                        <th><?= $fila['PaisOrigen'] ?></th>
+                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&PaisOrigen=<?=$fila['PaisOrigen']?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>" class="editar">Editar</a></th>
+                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>&PaisOrigen=<?=$fila['PaisOrigen']?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
