@@ -15,7 +15,7 @@ ob_start();
 </head>
 <body>
   
-  <form class="formulario" action="modificarPerro.php?NombrePerro=<?=$NombrePerro?>&DNIDueño=<?=$DNIDueño?>"method="POST" onsubmit="return comprobarCamposPerro();">
+  <form class="formulario" action="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&PaisOrigen=<?=$fila['PaisOrigen']?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>"method="POST" onsubmit="return comprobarCamposPerro();">
     <h4>Modificar datos de:</h4>
     <h4> <?php echo $NombrePerro;?></h4>
     <input type="hidden" name="NombrePerro" value="<?=$NombrePerro?>">
@@ -66,6 +66,7 @@ $paisform=$_POST['paisorigen'];
 
 
 $NombrePerrosql="UPDATE Perro SET NombrePerro='$nombre' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+
 $razasql="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 $pesosql="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 $fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
@@ -76,67 +77,69 @@ $pesosql2="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$nombre'AND  PaisOr
 $fechasql2="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$nombre'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 $paissql2="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$nombre'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 
-if(!empty($nombre)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
-    $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
-    if($ejecutar1){   
-        ?> 
-        <h3 class="bien">Nombre modificado correctamente!</h3>
-          <?php
-          $NombrePerro=$nombre;
-        if(!empty($raza)){
-            $ejecutar2=mysqli_query($conectar,$razasql2);
-            if($ejecutar2){
-            ?> 
-            <h3 class="bien">¡Raza modificada correctamente!</h3>
-                <?php
-            }
-        }
-        if(!empty($peso)){
-            $ejecutar3=mysqli_query($conectar,$pesosql2);
-            if($ejecutar3){
-                ?> 
-                <h3 class="bien">Peso modificado correctamente!</h3>
-                  <?php
-            }
-        }
-        if(!empty($fecha)){
-            $ejecutar4=mysqli_query($conectar,$fechasql2);
-                if($ejecutar4){
+    if(isset($nombre)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
+        $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
+            if($ejecutar1){
                     ?> 
-                    <h3 class="bien">Fecha modificada correctamente!</h3>
-                      <?php
+                    <h3 class="bien">¡Nombre del perro modificado correctamente!</h3>
+                      <?php 
+                    header("Location:lista.php");
+                    exit();
+
+            }
+        }
+               
+        if(isset($raza)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
+            $ejecutar2=mysqli_query($conectar,$razasql);
+                if($ejecutar2){
+                        ?> 
+                        <h3 class="bien">Raza del perro modificado correctamente!</h3>
+                          <?php 
+                        header("Location:lista.php");
+                        exit();
+    
                 }
             }
-     header("Location:lista.php");
-     exit();       
-    }
-}else{  //Si no se ha modificado el nombre, las instrucciones no cambian
 
-    if(!empty($raza)){
-        $ejecutar2=mysqli_query($conectar,$razasql);
-        if($ejecutar2){
-        ?> 
-        <h3 class="bien">¡Raza modificada correctamente!</h3>
-            <?php
-        }
-    }
+            if(isset($peso)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
+                $ejecutar3=mysqli_query($conectar,$pesosql);
+                    if($ejecutar3){
+                            ?> 
+                            <h3 class="bien">Peso del perro modificado correctamente!</h3>
+                              <?php 
+                            header("Location:lista.php");
+                            exit();
+        
+                    }
+                }
 
-    if(!empty($peso)){
-        $ejecutar3=mysqli_query($conectar,$pesosql);
-        if($ejecutar3){
-            ?> 
-            <h3 class="bien">Peso modificado correctamente!</h3>
-            <?php
-        }
-    }
-    if(!empty($fecha)){
-        $ejecutar4=mysqli_query($conectar,$fechasql);
-            if($ejecutar4){
-                ?> 
-                <h3 class="bien">Fecha modificada correctamente!</h3>
-                <?php
-            }
+                if(isset($fecha)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
+                    $ejecutar4=mysqli_query($conectar,$razasql);
+                        if($ejecutar1){
+                                ?> 
+                                <h3 class="bien">¡Nombre del perro modificado correctamente!</h3>
+                                  <?php 
+                                header("Location:lista.php");
+                                exit();
+            
+                        }
+                    }
 
-        }
-}
+                    if(isset($pais)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
+                        $ejecutar5=mysqli_query($conectar,$paissql);
+                            if($ejecutar1){
+                                    ?> 
+                                    <h3 class="bien">Pais del perro modificado correctamente!</h3>
+                                      <?php 
+                                    header("Location:lista.php");
+                                    exit();
+                
+                            }
+                        }
+                    
+                    
+
+
+
+
 ?>
