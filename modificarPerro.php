@@ -62,16 +62,19 @@ $nombre=$_POST['nombrePerro'];
 $raza = $_POST['razaPerro'];
 $peso = $_POST['pesoPerro'];
 $fecha = $_POST['fechaPerro'];
+$paisform=$_POST['paisorigen'];
 
 
 $NombrePerrosql="UPDATE Perro SET NombrePerro='$nombre' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 $razasql="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 $pesosql="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
-$fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$paissql="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 
 $razasql2="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$nombre' AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 $pesosql2="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$nombre'AND  PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 $fechasql2="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$nombre'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
+$paissql2="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$nombre'AND PaisOrigen='$pais' AND FechaNacimiento='$fecha')";
 
 if(!empty($nombre)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
     $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
