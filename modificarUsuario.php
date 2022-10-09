@@ -1,6 +1,51 @@
 <?php
-ob_start(); // para borrar el output buffer https://stackoverflow.com/questions/12654831/php-headers-already-sent-caused-by-session-start
+ob_start();
 session_start();
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="formularios.css">
+    <script src="./script.js"></script>
+  <title>Modificacion de datos</title>
+</head>
+<body>
+  
+  <form action="modificarUsuario.php" class="formulario" method="POST" onsubmit="return modificarUsuario();">
+    <h4>Modificar datos</h4>
+    <h4>Rellena los campos que quieres que se modifiquen</h4>
+    <p>Nombre:</p>
+    <input class="caja" type="text" name="nombre" id ='nombreMod' placeholder="p. ej Ander">
+  
+      
+    <p>DNI:</p>
+    <input class="caja"type="text" name="dni" id ='dniMod' placeholder="p. ej XXXXXXXX-A">
+  
+
+    <p>Telefono:</p>
+    <input class="caja" type="text" name ="telefono" id ='telefonoMod' placeholder="p. ej 123456789">
+
+
+    <p>Fecha de nacimiento:</p>
+    <input class="caja" type="text" name ="fecha" id ='fechaMod' placeholder="p. ej 2000-10-10">
+  
+
+    <p>Email:</p>
+    <input class="caja" type="text" name ="email" id='emailMod' placeholder="p. ej xxxxxxx@gmail.com" ><br>
+ 
+<p>Contrasena:</p>
+    <input class="caja" type="password" name ="contrasena" id='contrasenaMod'><br>
+  
+    <input class="botones"type="submit" value="Modificar datos" name="modificarDatos">
+    <input class="botones"type="reset" value="Borrar datos" name="borrar">
+</form>
+</body>
+</html>
+
+<?php
 //conectamos Con el servidor
 $conectar=@mysqli_connect("db","admin","test","database");
 //verificamos la conexion
@@ -147,46 +192,3 @@ if(!empty($dni)){
     }
 
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="formularios.css">
-    <script src="./script.js"></script>
-  <title>Modificacion de datos</title>
-</head>
-<body>
-  
-  <form action="modificarUsuario.php" class="formulario" method="POST" onsubmit="return modificarUsuario();">
-    <h4>Modificar datos</h4>
-    <h4>Rellena los campos que quieres que se modifiquen</h4>
-    <p>Nombre:</p>
-    <input class="caja" type="text" name="nombre" id ='nombreMod' placeholder="p. ej Ander">
-  
-      
-    <p>DNI:</p>
-    <input class="caja"type="text" name="dni" id ='dniMod' placeholder="p. ej XXXXXXXX-A">
-  
-
-    <p>Telefono:</p>
-    <input class="caja" type="text" name ="telefono" id ='telefonoMod' placeholder="p. ej 123456789">
-
-
-    <p>Fecha de nacimiento:</p>
-    <input class="caja" type="text" name ="fecha" id ='fechaMod' placeholder="p. ej 2000-10-10">
-  
-
-    <p>Email:</p>
-    <input class="caja" type="text" name ="email" id='emailMod' placeholder="p. ej xxxxxxx@gmail.com" ><br>
- 
-<p>Contrasena:</p>
-    <input class="caja" type="password" name ="contrasena" id='contrasenaMod'><br>
-  
-    <input class="botones"type="submit" value="Modificar datos" name="modificarDatos">
-    <input class="botones"type="reset" value="Borrar datos" name="borrar">
-</form>
-</body>
-</html>
