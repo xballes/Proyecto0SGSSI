@@ -68,61 +68,20 @@ $fecha = $_POST['fechaPerro'];
 $paisform=$_POST['paisorigen'];
 
 
-$NombrePerrosql="UPDATE Perro SET NombrePerro='$nombre' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
-$razasql="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
+$sql="UPDATE Perro SET NombrePerro='$nombre',Raza='$raza',Peso='$peso',FechaNacimiento='$fecha',PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
+/*$razasql="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
 $pesosql="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
 $fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
-$paissql="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
+$paissql="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";*/
 
-    if(!empty($nombre)){ 
-        $ejecutar1=mysqli_query($conectar,$NombrePerrosql);
+    if(!empty($nombre) || !empty($raza) || !empty($peso) || !empty($fecha) || $paisform){ 
+        $ejecutar1=mysqli_query($conectar,$sql);
             if($ejecutar1){
-                $NombrePerro=$nombre;
+                ?> 
+                <h3 class="bien">¡Datos modificados correctamente!</h3>
+                  <?php
                   
             }
         }
-        if(!empty($raza)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
-            $ejecutar2=mysqli_query($conectar,$razasql);
-                if($ejecutar2){
-                    echo $NombrePerro;
-                   
-    
-                }
-            }
-
-            if(!empty($peso)){//Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
-                $ejecutar3=mysqli_query($conectar,$pesosql);
-                    if($ejecutar3){
-                   
-        
-                    }
-                }
-
-                if(!empty($fecha)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
-                    $ejecutar4=mysqli_query($conectar,$razasql);
-                        if($ejecutar4){
-                            $fechaN=$fecha;
-                            
-            
-                        }
-                    }
-
-                    if(!empty($paisform)){ //Si cambia el nombre, las demas instrucciones tienen que updatear con el nombre cambiado. SI NO ha cambiado el nombre,no.
-                        $ejecutar5=mysqli_query($conectar,$paissql);
-                            if($ejecutar5){
-                                $paisO=$paisform;
-                               
-                
-                            }
-                    }
-    /*if($ejecutar1 || $ejecutar2 || $ejecutar3 || $ejecutar4 || $ejecutar5){
-        header("Location:lista.php");
-        exit();
-    }*/
-                    
-                    
-
-
-
 
 ?>
