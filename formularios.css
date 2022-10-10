@@ -88,7 +88,11 @@
 .listaperros{
   margin: 0 auto;
 }
-  
+.lista{  
+    display: grid;
+    place-content: center;
+  }
+
 table tr {
     background-color: #f8f8f8;
     border: 1px solid #ddd;
