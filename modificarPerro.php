@@ -76,6 +76,7 @@ $sql5="UPDATE Perro SET Raza='$raza'WHERE (NombrePerro='$NombrePerro' AND PaisOr
     if(!empty($nombre)){
         $ejecutar1=mysqli_query($conectar,$sql1);
             if($ejecutar1){
+                $NombrePerro=$nombre;
                 $sql2="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$nombre' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
                 $sql3="UPDATE Perro SET FechaNacimiento='$fecha'WHERE (NombrePerro='$nombre' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
                 $sql4="UPDATE Perro SET Peso='$peso'WHERE (NombrePerro='$nombre' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
@@ -89,8 +90,8 @@ $sql5="UPDATE Perro SET Raza='$raza'WHERE (NombrePerro='$NombrePerro' AND PaisOr
              if(!empty($paisform)){
                 $ejecutar2=mysqli_query($conectar,$sql2);
                     if($ejecutar2){
+                        $paisO=$paisform;
                         $sql1="UPDATE Perro SET NombrePerro='$nombre'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisform' AND FechaNacimiento='$fechaN')";
-                        $sql2="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisform' AND FechaNacimiento='$fechaN')";
                         $sql3="UPDATE Perro SET FechaNacimiento='$fecha'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisform' AND FechaNacimiento='$fechaN')";
                         $sql4="UPDATE Perro SET Peso='$peso'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisform' AND FechaNacimiento='$fechaN')";
                         $sql5="UPDATE Perro SET Raza='$raza'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisform' AND FechaNacimiento='$fechaN')";                        
@@ -103,6 +104,7 @@ $sql5="UPDATE Perro SET Raza='$raza'WHERE (NombrePerro='$NombrePerro' AND PaisOr
                 if(!empty($fecha)){
                     $ejecutar3=mysqli_query($conectar,$sql3);
                         if($ejecutar3){
+                            $fechaN=$fecha;
                             $sql1="UPDATE Perro SET NombrePerro='$nombre'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fecha')";
                             $sql2="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fecha')";
                             $sql3="UPDATE Perro SET FechaNacimiento='$fecha'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fecha')";
@@ -115,7 +117,6 @@ $sql5="UPDATE Perro SET Raza='$raza'WHERE (NombrePerro='$NombrePerro' AND PaisOr
                          }
                     }        
                 
-    
         if(!empty($peso)){
             $ejecutar4=mysqli_query($conectar,$sql4);
             if($ejecutar4){
