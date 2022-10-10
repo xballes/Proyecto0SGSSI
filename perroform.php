@@ -37,7 +37,6 @@ if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
       header("Location:lista.php");
     }
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

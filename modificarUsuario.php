@@ -82,62 +82,58 @@ $actualNombre=$_SESSION['Usuario'];
 if(!empty($dni)){
     $ejecutar2=mysqli_query($conectar,$dnisql);
     if($ejecutar2){
-    $_SESSION['DNI']=$dni;
-    $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE DNI='$dni' ";
-    $dnisql="UPDATE Usuario SET DNI='$dni' WHERE DNI='$dni' ";
-    $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE DNI='$dni' ";
-    $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE DNI='$dni' ";
-    $emailsql="UPDATE Usuario SET Email='$email' WHERE DNI='$dni' ";
-    $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$dni' ";
-    ?> 
-    <h3 class="bien">¡DNI modificado correctamente!</h3>
-      <?php
-    }
+      $_SESSION['DNI']=$dni;
+      $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE DNI='$dni' ";
+      $dnisql="UPDATE Usuario SET DNI='$dni' WHERE DNI='$dni' ";
+      $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE DNI='$dni' ";
+      $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE DNI='$dni' ";
+      $emailsql="UPDATE Usuario SET Email='$email' WHERE DNI='$dni' ";
+      $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$dni' ";
+      ?> 
+      <h3 class="bien">¡DNI modificado correctamente!</h3>
+        <?php
+      }
 }  
-     if(!empty($nombre)){
+  if(!empty($nombre)){
         $ejecutar1=mysqli_query($conectar,$nombresql);
         if($ejecutar1){
         /*Cerrar sesion*/
-        $_SESSION['Usuario']=$nombre;
-        ?> 
-        <h3 class="bien">¡Nombre modificado correctamente!</h3>
-          <?php
+          $_SESSION['Usuario']=$nombre;
+          ?> 
+          <h3 class="bien">¡Nombre modificado correctamente!</h3>
+            <?php
     }
 }
      if(!empty($telefono)){
       $ejecutar3=mysqli_query($conectar,$telefonosql);
       if($ejecutar3){
-      /*Cerrar sesion*/
-      ?> 
-      <h3 class="bien">¡Telefono modificado correctamente!</h3>
-        <?php
+        ?> 
+        <h3 class="bien">¡Telefono modificado correctamente!</h3>
+          <?php
       }
   }
   if(!empty($fecha)){
       $ejecutar4=mysqli_query($conectar,$fechasql);
       if($ejecutar4){
-      /*Cerrar sesion*/
-      ?> 
-      <h3 class="bien">¡Fecha modificada correctamente!</h3>
-        <?php
+        ?> 
+        <h3 class="bien">¡Fecha modificada correctamente!</h3>
+          <?php
       }
   }
   if(!empty($email)){
       $ejecutar5=mysqli_query($conectar,$emailsql);
       if($ejecutar5){
-      /*Cerrar sesion*/
-      ?> 
-            <h3 class="bien">¡Email modificado correctamente!</h3>
-              <?php
+        ?> 
+              <h3 class="bien">¡Email modificado correctamente!</h3>
+                <?php
       }
   }
   if(!empty($contrasena)){
       $ejecutar6=mysqli_query($conectar,$contrasenasql);
       if($ejecutar6){
-      /*Cerrar sesion*/
-      ?> 
-            <h3 class="bien">¡Contraseña modificada correctamente!</h3>
-              <?php
+        ?> 
+              <h3 class="bien">¡Contraseña modificada correctamente!</h3>
+                <?php
       }
   }
 ?>
