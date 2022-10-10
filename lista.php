@@ -64,7 +64,7 @@ $lista=mysqli_query($conectar,$listaperros);
                         <th><?=$fila['Peso'] ?></th>
                         <th><?=$fila['FechaNacimiento'] ?></th>
                         <th><?=$fila['PaisOrigen'] ?></th>
-                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&FechaNacimiento=<?=fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="editar">Editar</a></th>
+                        n   <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="editar">Editar</a></th>
                         <th><a href="eliminarPerro.php?NombrePerro=<?=$fila['NombrePerro'] ?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
                     </tr>
                 <?php endwhile; ?>

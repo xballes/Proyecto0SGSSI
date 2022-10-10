@@ -67,21 +67,61 @@ $peso = $_POST['pesoPerro'];
 $fecha = $_POST['fechaPerro'];
 $paisform=$_POST['paisorigen'];
 
+$sql1="UPDATE Perro SET NombrePerro='$nombre'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
+$sql2="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
+$sql3="UPDATE Perro SET FechaNacimiento='$fecha'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
+$sql4="UPDATE Perro SET Peso='$peso'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
+$sql5="UPDATE Perro SET Raza='$raza'WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
 
-$sql="UPDATE Perro SET NombrePerro='$nombre',Raza='$raza',Peso='$peso',FechaNacimiento='$fecha',PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro' AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
-/*$razasql="UPDATE Perro SET Raza='$raza' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
-$pesosql="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
-$fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
-$paissql="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";*/
-
-    if(!empty($nombre) || !empty($raza) || !empty($peso) || !empty($fecha) || !empty($paisform)){ 
-        $ejecutar1=mysqli_query($conectar,$sql);
+    if(!empty($nombre)){
+        $ejecutar1=mysqli_query($conectar,$sql1);
             if($ejecutar1){
+                $NombrePerro=$nombre;
                 ?> 
-                <h3 class="bien">¡Datos modificados correctamente!</h3>
-                  <?php
-                  
+                    <h3 class="bien">Nombre modificado correctamente!</h3>
+                <?php
+             }
+
             }
+             if(!empty($paisform)){
+                $ejecutar2=mysqli_query($conectar,$sql2);
+                    if($ejecutar2){
+                        echo $NombrePerro;
+                        $paisO=$paisform;
+                        ?> 
+                            <h3 class="bien">Pais de Origen modificados correctamente!</h3>
+                        <?php
+                     }
+                }
+                if(!empty($fecha)){
+                    $ejecutar3=mysqli_query($conectar,$sql3);
+                        if($ejecutar3){
+                            $fechaN=$fecha;
+                            ?> 
+                                <h3 class="bien">Fecha de Nacimiento modificados correctamente!</h3>
+                            <?php
+                         }
+                    }        
+                
+    
+        if(!empty($peso)){
+            $ejecutar4=mysqli_query($conectar,$sql4);
+            if($ejecutar4){
+                ?> 
+                    <h3 class="bien">Peso modificado correctamente!</h3>
+                <?php
+             }
+
+        }
+
+        if(!empty($raza)){
+            $ejecutar5=mysqli_query($conectar,$sql5);
+            if($ejecutar5){
+                ?> 
+                    <h3 class="bien">Raza modificada correctamente!</h3>
+                <?php
+             }
+
         }
 
 ?>
