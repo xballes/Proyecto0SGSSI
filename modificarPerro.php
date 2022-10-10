@@ -74,7 +74,7 @@ $pesosql="UPDATE Perro SET Peso='$peso' WHERE (NombrePerro='$NombrePerro'AND Pai
 $fechasql="UPDATE Perro SET FechaNacimiento='$fecha' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";
 $paissql="UPDATE Perro SET PaisOrigen='$paisform' WHERE (NombrePerro='$NombrePerro'AND PaisOrigen='$paisO' AND FechaNacimiento='$fechaN')";*/
 
-    if(!empty($nombre) || !empty($raza) || !empty($peso) || !empty($fecha) || $paisform){ 
+    if(!empty($nombre) || !empty($raza) || !empty($peso) || !empty($fecha) || !empty($paisform)){ 
         $ejecutar1=mysqli_query($conectar,$sql);
             if($ejecutar1){
                 ?> 
