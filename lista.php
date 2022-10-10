@@ -59,13 +59,13 @@ $lista=mysqli_query($conectar,$listaperros);
             <tbody>
                 <?php while ($fila = mysqli_fetch_array($lista)): ?>
                     <tr>
-                        <th><?= $fila['NombrePerro'] ?></th>
-                        <th><?= $fila['Raza'] ?></th>
-                        <th><?= $fila['Peso'] ?></th>
-                        <th><?= $fila['FechaNacimiento'] ?></th>
-                        <th><?= $fila['PaisOrigen'] ?></th>
-                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="editar">Editar</a></th>
-                        <th><a href="eliminarPerro.php?NombrePerro=<?= $fila['NombrePerro'] ?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
+                        <th><?=$fila['NombrePerro'] ?></th>
+                        <th><?=$fila['Raza'] ?></th>
+                        <th><?=$fila['Peso'] ?></th>
+                        <th><?=$fila['FechaNacimiento'] ?></th>
+                        <th><?=$fila['PaisOrigen'] ?></th>
+                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&FechaNacimiento=<?=fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="editar">Editar</a></th>
+                        <th><a href="eliminarPerro.php?NombrePerro=<?=$fila['NombrePerro'] ?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
                     </tr>
                 <?php endwhile; ?>
             </tbody>
