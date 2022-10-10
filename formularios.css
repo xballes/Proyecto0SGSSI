@@ -78,30 +78,23 @@
     color: #fff
   }
 .listaperros table{
-    border: 1px solid #ccc;
-    border-collapse: collapse;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    table-layout: fixed;
+  border: 1px solid #ccc;
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  table-layout: fixed;
 }
-.listaperros{
-  margin: 0 auto;
-}
-.lista{  
-    display: grid;
-    place-content: center;
-  }
 
 table tr {
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    padding: 4px;
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  padding: 4px;
 }
 
 table th{
-    padding: 16px;
-    text-align: center;
-    font-size: .85em;
+  padding: 16px;
+  text-align: center;
+  font-size: .85em;
 }
 
