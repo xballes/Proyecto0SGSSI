@@ -1,4 +1,4 @@
-# REFUGIO PERRUNO (Xabier Ballesteros,Alvaro Guerricagoitia y Mikel Pedro
+# REFUGIO PERRUNO (Xabier Ballesteros,Alvaro Guerricagoitia y Mikel Pedro)
 
 Este proyecto trata sobre el desarrollo de una pagina web usando HTML,CSS,JavaScript,PHP,MariaDB y Docker.
 En este caso hemos decidido que la tematica sea de un refugio para perros.
@@ -31,5 +31,5 @@ Para poder acceder al area personal del usuario es necesario registrarse o inici
 
 Una vez en el área la única opción disponible es la de modificar los datos del usuario que haya iniciado la sesión o se haya registrado. 
 
-Tambien está disponible un boton 'Galería' que muestra fotos de los perros del refugio y un formulario de contacto ( que no funciona de momento) en caso de que alguien se quiera poner en contacto con el refugio
+Tambien está disponible un boton 'Galería' que muestra fotos de los perros del refugio y un formulario de contacto ( que no funciona de momento) en caso de que alguien se quiera poner en contacto con el refugio.
 
