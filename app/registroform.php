@@ -59,7 +59,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
     <input class="caja" type="text" name="nombre" id ='nombre' placeholder="p. ej Ander" required>
    
     <p>DNI:</p>
-    <input class="caja"type="text" name="dni" id ='dni' placeholder="p. ej XXXXXXXX-A" required>
+    <input class="caja"type="text" name="dni" id ='dni' placeholder="p. ej 79087651A" required>
 
     <p>Telefono:</p>
     <input class="caja" type="text" name ="telefono" id ='telefono' placeholder="p. ej 123456789" required>
