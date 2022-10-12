@@ -37,12 +37,12 @@
           
         }else{
 ?>
-          <h3 class="bad">¡Ups ha ocurrido un error!</h3>
+          <h3 class="bad">Contrasena incorrecta!</h3>
 <?php 
         }
       }else{
 ?>
-          <h3 class="bad">¡El usuario no existe!</h3>	
+          <h3 class="bad">El usuario no existe!</h3>	
 <?php 
       }	
     }  	
