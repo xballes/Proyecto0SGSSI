@@ -32,8 +32,8 @@ $lista=mysqli_query($conectar,$datosusuario);
 </head>
 <body>
 <form action="registrar.php" class="formulario" method="POST">
-  <h2> Bienvenido <?php echo $_SESSION['Usuario']?> !</h2>
-  <h2> Que deseas hacer? </h2>
+  <h2> ¡Bienvenido <?php echo $_SESSION['Usuario']?> !</h2>
+  <h2> ¿Qué deseas hacer? </h2>
   <input class="botones" type="button" value="Modificar datos" name="modificar" onclick="location.href='modificarUsuario.php'">
   <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.html'">
 </form>
@@ -44,7 +44,7 @@ $lista=mysqli_query($conectar,$datosusuario);
                 <tr>
                     <th>Nombre</th>
                     <th>DNI</th>
-                    <th>Telefono</th>
+                    <th>Teléfono</th>
                     <th>FechaNacimiento</th>
                     <th>Email</th>
                     <th>Contraseña</th>

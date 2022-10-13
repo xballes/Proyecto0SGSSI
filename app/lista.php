@@ -53,7 +53,7 @@ $lista=mysqli_query($conectar,$listaperros);
                     <th>Raza</th>
                     <th>Peso</th>
                     <th>FechaNacimiento</th>
-                    <th>PaisOrigen</th>
+                    <th>PaísOrigen</th>
                 </tr>
             </thead>
             <tbody>
