@@ -67,6 +67,7 @@
     <input class="caja" type="password" name ="contrasena" id='contrasena'required><br>
     <input class="botones" type="submit" value="Iniciar Sesion" name="iniciar">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
+    <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.html'">
   </section>
 
 </body>
