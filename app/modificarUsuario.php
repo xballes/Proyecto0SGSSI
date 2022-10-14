@@ -25,7 +25,7 @@ session_start();
     <input class="caja"type="text" name="dni" id ='dniMod' placeholder="p. ej XXXXXXXX-A">
   
 
-    <p>Telefono:</p>
+    <p>Teléfono:</p>
     <input class="caja" type="text" name ="telefono" id ='telefonoMod' placeholder="p. ej 123456789">
 
 
