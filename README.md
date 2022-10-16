@@ -27,7 +27,7 @@ http://localhost:81/
 ```
 
 ## Uso de la página
-En la página principal, se encuentra la información acerca del refugio, una barra de navegación para acceder a los distintos apartados de la página y en la parte inferior tres botones, uno para ver la lista de perros, otro para añadir perros y otro para modificar los datos del usuario, que al pulsarlo redigirá al formulario para iniciar sesión. En la lista de animales es posible tanto modificar los datos del perro seleccionado como eliminar el perro seleccionado.
+En la página principal, se encuentra la información acerca del refugio, una barra de navegación para acceder a los distintos apartados de la página y en la parte inferior tres botones, uno para ver la lista de perros, otro para añadir perros y otro para modificar los datos del usuario, que al pulsarlo redirigirá al formulario para iniciar sesión. En la lista de animales es posible tanto modificar los datos del perro seleccionado como eliminar el perro seleccionado.
 
 Para poder acceder al área personal del usuario es necesario registrarse o iniciar sesión. El botón para ello se encuentra en la barra superior, y en caso de que el usuario ya disponga de una cuenta, puede iniciar sesión.
 
