@@ -9,19 +9,21 @@ $ cd docker-lamp
 ```
 2.Construir la imagen web:
 ```
-$ docker build -t="web" .
+$ sudo docker build -t="web" .
 ```
 3.Introducir el siguiente comando para iniciar el contenedor:
 ```
-$ docker-compose up
+$ sudo docker-compose up
 ```
-Una vez realizados estos pasos,hay que introducir la siguiente dirección para acceder a la página:
-```
-http://localhost:81/
-```
-Y para acceder a la página de PHPMyAdmin donde habrá que importar la base de datos database.sql:
+4.Acceder a la página de PHPMyAdmin donde habrá que importar la base de datos **database.sql**:
 ```
 http://localhost:8890/
+```
+5.Una vez en PHPMyAdmin iniciar sesión con Usuario: "admin" Contraseña: "test", despues hacer click en database e importar la base de datos **database.sql**.
+
+6.Después de realizar todos los pasos hay que introducir la siguiente dirección para acceder a la página web:
+```
+http://localhost:81/
 ```
 
 ## Uso de la página
