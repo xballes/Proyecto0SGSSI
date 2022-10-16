@@ -33,4 +33,4 @@ Para poder acceder al área personal del usuario es necesario registrarse o inic
 
 Una vez en el área la única opción disponible es la de modificar los datos del usuario que haya iniciado la sesión o se haya registrado. 
 
-También está disponible un botón 'Galería' que muestra fotos de los perros del refugio y un formulario de contacto (que no funciona de momento) en caso de que alguien se quiera poner en contacto con el refugio.
+También está disponible un botón 'Galería' que muestra fotos de los perros del refugio y un formulario de contacto (que no funciona) en caso de que alguien se quiera poner en contacto con el refugio.
