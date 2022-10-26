@@ -20,12 +20,15 @@ $paisorigen=$_POST['paisorigen'];
 $sesionactual=$_SESSION['Usuario'];
 //$dniactual=$_SESSION['DNI'];
 
-
-$registrar="INSERT INTO Perro VALUES('$nombrePerro','$raza','$peso','$fechanacimiento','$paisorigen')";
-$registro=mysqli_query($conectar,$registrar);
-
 if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
-  if(!$registro){
+  if($registrar=$conectar->prepare("INSERT INTO Perro VALUES(?,?,?,?,?)")){
+    $registrar->bind_param('ssiss',$nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen);
+    $registrar->execute();
+    $registro=$registrar->get_result();
+    $registrar->close();
+  }
+  $conectar->close(); 
+  if($registro){
       ?>      
           <h3 class="bad">¡Ha ocurrido un error en el registro,vuelve a introducir los datos!</h3>
             <?php
