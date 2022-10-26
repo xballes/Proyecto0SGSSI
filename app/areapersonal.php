@@ -18,8 +18,15 @@ $sql=mysqli_query($conectar,$dniactual);
 $dni=mysqli_fetch_array($sql)[0];
 */
 $dni=$_SESSION['DNI'];
-$datosusuario="SELECT * FROM Usuario WHERE(DNI='$dni')";
-$lista=mysqli_query($conectar,$datosusuario);
+if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
+    $datosusuario->bind_param('s',$dni);
+    $datosusuario->execute();
+    $lista=$datosusuario->get_result();
+    $datosusuario->close();
+    $conectar->close();
+
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
