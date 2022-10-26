@@ -21,22 +21,29 @@ $email=$_POST['email'];
 $contrasena=$_POST['contrasena'];
 
 //hacemos la sentencia de sql
-$sql="INSERT INTO Usuario (Nombre,DNI,Telefono,Fecha,Email,Contrasena) VALUES('$nombre','$dni','$telefono','$fecha','$email','$contrasena')";
-//ejecutamos la sentencia de sql
-$ejecutar=mysqli_query($conectar,$sql);
+
+
 //verificamos la ejecucion
 if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
-  if(!$ejecutar){
+  if($sql=$conectar->prepare("INSERT INTO Usuario (Nombre,DNI,Telefono,Fecha,Email,Contrasena) VALUES(?,?,?,?,?,?)")){
+    $sql->bind_param('ssisss',$nombre,$dni,$telefono,$fecha,$email,$contrasena);
+    $sql->execute();
+    $insertar=$sql->get_result();
+    $sql->close();
+  }
+    $conectar->close();
+    if($insertar){
       ?> 
           <h3 class="bad">¡Ha ocurrido un error,vuelve a introducir los datos!</h3>
-            <?php
-  }else{
-      echo"Datos Guardados Correctamente";
+          
+           <?php
+  }
+      //echo"Datos Guardados Correctamente";
       /*SESION*/
       $_SESSION['Usuario']=$nombre;
       $_SESSION['DNI']=$dni;
-      header("Location:areapersonal.php");
-  }
+      header("Location:areapersonal.php");    
+    
 }
 ?>
 
