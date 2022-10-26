@@ -12,43 +12,28 @@
 			echo"No Se Encontro La Base De Datos";			
 		}
 	}
-  
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	//recuperar las variables
 	$nombre=$_POST['nombre'];
 	$dni=$_POST['dni'];
 	$contrasena=$_POST['contrasena'];
-
-    if(isset($dni) && isset($contrasena)){ 
-      //----------------------------------------------------------------------------------------
-      if($contrasenaUsuario = $conectar->prepare("SELECT Contrasena FROM Usuario WHERE DNI=?")){
-        $contrasenaUsuario->bind_param('s',$dni);
-        $contrasenaUsuario->execute();
-        $contrasenaAcomparar = $contrasenaUsuario->get_result(); //recogemos resultado
-        $contrasenaUsuario->close(); //cerramos el prepare
-      }
-      //----------------------------------------------------------------------------------------
-      if($usuario=$conectar->prepare("SELECT * FROM Usuario WHERE DNI=?")){
-        $usuario->bind_param('s',$dni); //vinculamos el parámetro
-        $usuario->execute();
-        $datosUsuario = $usuario->get_result(); //recogemos resultado
-        $usuario->close(); //cerramos el prepare
-      }
-      //----------------------------------------------------------------------------------------
-      if($nombreUsuario=$conectar->prepare("SELECT Nombre FROM Usuario WHERE (DNI=?)")){
-        $nombreUsuario->bind_param('s',$dni);
-        $nombreUsuario->execute();    
-        $nombre = $nombreUsuario->get_result(); //recogemos resultado
-        $nombreUsuario->close(); //cerramos el prepare
-      }  
-      $conectar->close();
-      //---------------------------------------------------------------------------------------
-      if(mysqli_num_rows($datosUsuario)>0){ // es decir, si existe el usuario...
-        if(strcmp(mysqli_fetch_array($contrasenaAcomparar)[0],$contrasena) === 0){ // y la compara con la que ha introducido.      
+	//----------------------------------------------------------------------------------------------------------------------------------------
+	$contrasenaUsuario="SELECT Contrasena FROM Usuario WHERE (DNI='$dni')"; //Consigue la contraseña del usuario
+	$usuario="SELECT * FROM Usuario WHERE (DNI='$dni')"; //Consigue el nombre (para ver si existe el usuario)
+	$nombreUsuario="SELECT Nombre FROM Usuario WHERE (DNI='$dni')"; //Consigue la contraseña del usuario
+	//----------------------------------------------------------------------------------------------------------------------------------------
+	$ejecutar=mysqli_query($conectar,$contrasenaUsuario); // ejecutar instruccion para conseguir la contraseña
+	$existeUsuario=mysqli_query($conectar,$usuario);      // ejecutar instruccion para saber si existe el usuario
+	$nombreSesion=mysqli_query($conectar,$nombreUsuario);  // ejecutar instruccion para conseguir nombre del usuario asociado al dni introducido
+    if(isset($dni) && isset($contrasena)){                                           
+      if(mysqli_num_rows($existeUsuario)>0){ // es decir, si existe el usuario...
+        $cont=mysqli_fetch_array($ejecutar); // consigue su contraseña.
+        if(strcmp($cont[0],$contrasena) === 0){ // y la compara con la que ha introducido.      
           /*SESION*/
+          $sesion=mysqli_fetch_array($nombreSesion);
           header("Location:areapersonal.php");
-          $_SESSION['Usuario']=(mysqli_fetch_array($nombre)[0]);
-          $_SESSION['DNI']=$dni;
+          $_SESSION['Usuario']=$sesion[0];
+          $_SESSION['DNI']=$dni;//mysqli_fetch_array($nombreSesion);
           
         }else{
 ?>
