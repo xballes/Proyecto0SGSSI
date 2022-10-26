@@ -82,7 +82,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
         }
             if($ejecucion1){
                 ?> 
-                    <h3 class="bien">No se ha podido modificar el nombre!</h3>
+                    <h3 class="mal">No se ha podido modificar el nombre!</h3>
                 <?php
                
              }else{
@@ -114,7 +114,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                 }
                     if($ejecutar2){
                         ?> 
-                        <h3 class="bien">No se ha podido modificar el pais!</h3>
+                        <h3 class="mal">No se ha podido modificar el pais!</h3>
                     <?php
 
                     }else{
@@ -149,7 +149,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                     }
                         if($ejecutar3){
                             ?> 
-                            <h3 class="bien">No se ha podido modificar la fecha!</h3>
+                            <h3 class="mal">No se ha podido modificar la fecha!</h3>
                         <?php
                         }else{
                             $fechaN=$fecha;
