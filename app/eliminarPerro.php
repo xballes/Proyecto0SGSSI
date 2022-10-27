@@ -24,5 +24,6 @@
     echo 'Se ha eliminado a '.$nombre.' de la lista';
     header("Location:lista.php");
     //exit();
+    //pruebaaaaaaaaaaaaaaaaaaaaaa
 
 ?>
