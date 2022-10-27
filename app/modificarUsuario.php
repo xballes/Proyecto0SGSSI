@@ -68,69 +68,87 @@ $contrasena=$_POST['contrasena'];
 $actual=$_SESSION['DNI'];
 $actualNombre=$_SESSION['Usuario'];
 
-
-// si el campo esta vacio, no actualizar los datos.
-  
-    $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE DNI='$actual' ";
-    $dnisql="UPDATE Usuario SET DNI='$dni' WHERE DNI='$actual' ";
-    $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE DNI='$actual' ";
-    $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE DNI='$actual' ";
-    $emailsql="UPDATE Usuario SET Email='$email' WHERE DNI='$actual' ";
-    $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$actual' ";
-
 //-------------------------------------------------------------------------------
 if(!empty($dni)){
-    $ejecutar2=mysqli_query($conectar,$dnisql);
-    if($ejecutar2){
+  if($dnisql=$conectar->prepare("UPDATE Usuario SET DNI=? WHERE DNI=?")){
+    $dnisql->bind_param('ss',$dni,$actual);
+    $dnisql->execute();
+    $dnisqlejec=$dnisql->get_result();
+    $dnisql->close();
       $_SESSION['DNI']=$dni;
-      $nombresql="UPDATE Usuario SET Nombre='$nombre' WHERE DNI='$dni' ";
-      $dnisql="UPDATE Usuario SET DNI='$dni' WHERE DNI='$dni' ";
-      $telefonosql="UPDATE Usuario SET Telefono='$telefono' WHERE DNI='$dni' ";
-      $fechasql="UPDATE Usuario SET Fecha='$fecha' WHERE DNI='$dni' ";
-      $emailsql="UPDATE Usuario SET Email='$email' WHERE DNI='$dni' ";
-      $contrasenasql="UPDATE Usuario SET Contrasena='$contrasena' WHERE DNI='$dni' ";
+      $actual=$dni;
+      /*if($nombresql=$conectar->prepare("UPDATE Usuario SET Nombre=? WHERE DNI=?")){
+        $nombresql->bind_param('ss',$nombre,$dni);
+      }
+      if($telefonosql=$conectar->prepare("UPDATE Usuario SET Telefono=? WHERE DNI=? ")){
+        $telefonosql->bind_param('is',$telefono,$dni);
+      }
+      if($fechasql=$conectar->prepare("UPDATE Usuario SET Fecha=? WHERE DNI=?")){
+        $fechasql->bind_param('ss',$fecha,$dni);
+      }
+      if($emailsql=$conectar->prepare("UPDATE Usuario SET Email=? WHERE DNI=? ")){
+        $emailsql->bind_param('ss',$email,$dni);
+      }
+      if($contrasenasql=$conectar->prepare("UPDATE Usuario SET Contrasena=? WHERE DNI=? ")){
+        $contrasenasql->bind_param('ss',$contrasena,$dni);
+      }*/
+          
       ?> 
       <h3 class="bien">¡DNI modificado correctamente!</h3>
         <?php
       }
-}  
+  }
   if(!empty($nombre)){
-        $ejecutar1=mysqli_query($conectar,$nombresql);
-        if($ejecutar1){
+    $nombresql=$conectar->prepare("UPDATE Usuario SET Nombre=? WHERE DNI=?");
+    $nombresql->bind_param('ss',$nombre,$actual);
+    $nombresql->execute();
+    $ejecutar1=$nombresql->get_result();
         /*Cerrar sesion*/
           $_SESSION['Usuario']=$nombre;
           ?> 
           <h3 class="bien">¡Nombre modificado correctamente!</h3>
             <?php
-    }
+    
 }
      if(!empty($telefono)){
-      $ejecutar3=mysqli_query($conectar,$telefonosql);
-      if($ejecutar3){
+      $telefonosql=$conectar->prepare("UPDATE Usuario SET Telefono=? WHERE DNI=? ");
+      $telefonosql->bind_param('is',$telefono,$actual);
+      $telefonosql->execute();
+      $ejecutar3=$telefonosql->get_result();
+      if(!$ejecutar3){
         ?> 
         <h3 class="bien">¡Telefono modificado correctamente!</h3>
           <?php
       }
   }
-  if(!empty($fecha)){
-      $ejecutar4=mysqli_query($conectar,$fechasql);
-      if($ejecutar4){
+     if(!empty($fecha)){
+      $fechasql=$conectar->prepare("UPDATE Usuario SET Fecha=? WHERE DNI=?");
+      $fechasql->bind_param('ss',$fecha,$actual);
+      $fechasql->execute();
+      $ejecutar4=$fechasql->get_result();
+      if(!$ejecutar4){
         ?> 
         <h3 class="bien">¡Fecha modificada correctamente!</h3>
           <?php
       }
   }
   if(!empty($email)){
-      $ejecutar5=mysqli_query($conectar,$emailsql);
-      if($ejecutar5){
+    $emailsql=$conectar->prepare("UPDATE Usuario SET Email=? WHERE DNI=? ");
+      $emailsql->bind_param('ss',$email,$actual);
+      $emailsql->execute();
+      $ejecutar5=$emailsql->get_result();
+      if(!$ejecutar5){
         ?> 
               <h3 class="bien">¡Email modificado correctamente!</h3>
                 <?php
       }
   }
   if(!empty($contrasena)){
-      $ejecutar6=mysqli_query($conectar,$contrasenasql);
-      if($ejecutar6){
+      $contrasenasql=$conectar->prepare("UPDATE Usuario SET Contrasena=? WHERE DNI=? ");
+      $contrasenasql->bind_param('ss',$contrasena,$actual);
+      $contrasenasql->execute();
+      $ejecutar6=$contrasenasql->get_result();
+      if(!$ejecutar6){
         ?> 
               <h3 class="bien">¡Contraseña modificada correctamente!</h3>
                 <?php

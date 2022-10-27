@@ -87,7 +87,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                
              }else{
                 $NombrePerro=$nombre;
-                if($sql2=$conectar->prepare("UPDATE Perro SET PaisOrigen=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
+                /*if($sql2=$conectar->prepare("UPDATE Perro SET PaisOrigen=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                     $sql2->bind_param('ssss',$paisform,$nombre,$paisO,$fechaN);
                    // $sql2->execute();
                 }
@@ -102,7 +102,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                 if($sql5=$conectar->prepare("UPDATE Perro SET Raza=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                     $sql5->bind_param('ssss',$raza,$nombre,$paisO,$fechaN);
                     //$sql5->execute();
-                }
+                }*/
                 ?> 
                     <h3 class="bien">Nombre modificado correctamente!</h3>
                 <?php
@@ -123,7 +123,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
 
                     }else{
                         $paisO=$paisform;
-                        if($sql1=$conectar->prepare("UPDATE Perro SET NombrePerro=?WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
+                        /*if($sql1=$conectar->prepare("UPDATE Perro SET NombrePerro=?WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                             $sql1->bind_param('ssss',$nombre,$NombrePerro,$paisform,$fechaN);
                           //  $sql1->execute();
                         }
@@ -138,7 +138,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                         if($sql5=$conectar->prepare("UPDATE Perro SET Raza=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                             $sql5->bind_param('ssss',$raza,$NombrePerro,$paisform,$fechaN);
                          //   $sql5->execute();  
-                        }
+                        }*/
                                                 
                         ?> 
                             <h3 class="bien">Pais de Origen modificados correctamente!</h3>
@@ -161,7 +161,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                         <?php
                         }else{
                             $fechaN=$fecha;
-                            if($sql1=$conectar->prepare("UPDATE Perro SET NombrePerro=?WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
+                            /*if($sql1=$conectar->prepare("UPDATE Perro SET NombrePerro=?WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                                 $sql1->bind_param('ssss',$nombre,$NombrePerro,$paisO,$fecha);
                                 //$sql1->execute();
                             }
@@ -180,7 +180,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                             if($sql5=$conectar->prepare("UPDATE Perro SET Raza=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                                 $sql5->bind_param('ssss',$raza,$NombrePerro,$paisO,$fecha);
                                // $sql5->execute();
-                            }
+                            }*/
                             ?> 
                                 <h3 class="bien">Fecha de Nacimiento modificados correctamente!</h3>
                             <?php
