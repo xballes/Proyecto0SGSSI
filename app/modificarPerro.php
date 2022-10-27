@@ -129,7 +129,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                         }
                         if($sql3=$conectar->prepare("UPDATE Perro SET FechaNacimiento=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                             $sql3->bind_param('ssss',$fecha,$NombrePerro,$paisform,$fechaN);
-                            $sql3->execute();
+                            //$sql3->execute();
                         }
                         if($sql4=$conectar->prepare("UPDATE Perro SET Peso=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
                             $sql4->bind_param('ssss',$peso,$NombrePerro,$paisform,$fechaN);
