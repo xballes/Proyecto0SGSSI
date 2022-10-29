@@ -1,8 +1,8 @@
-<?php 
-function error($numero,$texto){ 
-$ddf = fopen('~/docker-lamp/Proyecto0SGSSI/error.log','a'); 
-fwrite($ddf,"[".date("r")."] Error $numero:$texto\r\n"); 
-fclose($ddf); 
-} 
-set_error_handler('error'); 
+<?php
+function logear_error(String $mensaje){
+    echo getcwd();
+    $logFile = fopen("./log.txt", 'a');
+    fwrite($logFile, "\n".date("d/m/Y H:i:s").$mensaje); 
+    fclose($logFile);
+}
 ?>

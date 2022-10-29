@@ -53,13 +53,13 @@
           $_SESSION['DNI']=$dni;
           
         }else{
-          error('1','Contraseña incorrecta!');
+          logear_error("Contraseña incorrecta");
 ?>
           <h3 class="bad">Contrasena incorrecta!</h3>        
 <?php 
         }
       }else{
-        error('2','El usuario no existe!');
+        logear_error("El usuario no existe!");
 
 ?>
           <h3 class="bad">El usuario no existe!</h3>
