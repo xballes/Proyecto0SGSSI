@@ -11,12 +11,7 @@ if(!$conectar){
             echo"No Se Encontro La Base De Datos";
         }
 }
-/*$sesionactual=$_SESSION['Usuario'];
-$dniactual="SELECT DNI from Usuario where Nombre='$sesionactual'";
 
-$sql=mysqli_query($conectar,$dniactual);
-$dni=mysqli_fetch_array($sql)[0];
-*/
 $dni=$_SESSION['DNI'];
 if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
     $datosusuario->bind_param('s',$dni);
