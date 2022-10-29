@@ -1,5 +1,5 @@
 <?php
- $conectar=@mysqli_connect("db","admin","test","database");
+$conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
  ob_start();
  //verificamos la conexion
  if(!$conectar){

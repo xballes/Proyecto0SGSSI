@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 //conectamos Con el servidor
-$conectar=@mysqli_connect("db","admin","test","database");
+$conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
 //verificamos la conexion
 if(!$conectar){
     echo"No Se Pudo Conectar Con El Servidor";

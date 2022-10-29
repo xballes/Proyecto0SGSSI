@@ -2,7 +2,7 @@
 	ob_start();// para borrar el output buffer https://stackoverflow.com/questions/12654831/php-headers-already-sent-caused-by-session-start
 	session_start();
 	//conectamos Con el servidor
-	$conectar=@mysqli_connect("db","admin","test","database");
+  $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
 	//verificamos la conexion
 	if(!$conectar){
 		echo"No Se Pudo Conectar Con El Servidor";
@@ -15,6 +15,8 @@
   
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	//recuperar las variables
+  include 'logear.php';
+  
 	$nombre=$_POST['nombre'];
 	$dni=$_POST['dni'];
 	$contrasena=$_POST['contrasena'];
@@ -51,13 +53,16 @@
           $_SESSION['DNI']=$dni;
           
         }else{
+          error('1','Contraseña incorrecta!');
 ?>
-          <h3 class="bad">Contrasena incorrecta!</h3>
+          <h3 class="bad">Contrasena incorrecta!</h3>        
 <?php 
         }
       }else{
+        error('2','El usuario no existe!');
+
 ?>
-          <h3 class="bad">El usuario no existe!</h3>	
+          <h3 class="bad">El usuario no existe!</h3>
 <?php 
       }	
     }  	
