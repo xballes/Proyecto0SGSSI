@@ -18,9 +18,7 @@ if(!$conectar){
 }
   
 	//----------------------------------------------------------------------------------------------------------------------------------------
-	//recuperar las variables
-  include 'logear.php';
-  
+	//recuperar las variables  
 	$nombre=$_POST['nombre'];
 	$dni=$_POST['dni'];
 	$contrasena=$_POST['contrasena'];
@@ -50,14 +48,14 @@ if(!$conectar){
       $conectar->close();
       //---------------------------------------------------------------------------------------
       if(mysqli_num_rows($datosUsuario)>0){ // es decir, si existe el usuario...
-        if(strcmp(mysqli_fetch_array($contrasenaAcomparar)[0],$contrasena) === 0){ // y la compara con la que ha introducido.      
+          $hash=mysqli_fetch_array($contrasenaAcomparar)[0];    
+        if(password_verify($contrasena,$hash)){ // y la compara con la que ha introducido.      
           /*SESION*/
           header("Location:areapersonal.php");
           $_SESSION['Usuario']=(mysqli_fetch_array($nombre)[0]);
           $_SESSION['DNI']=$dni;
           
         }else{
-          
           logear_error("Contraseña incorrecta");
 ?>
           <h3 class="bad">Contrasena incorrecta!</h3>        

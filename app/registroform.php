@@ -22,13 +22,15 @@ $dni=$_POST['dni'];
 $telefono=$_POST['telefono'];
 $fecha=$_POST['fecha'];
 $email=$_POST['email'];
-$contrasena=$_POST['contrasena'];
+$contrasena=password_hash($_POST['contrasena'],PASSWORD_DEFAULT."\n");
+
 
 //hacemos la sentencia de sql
 
 
 //verificamos la ejecucion
 if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
+  console.log($contrasena);
   if($sql=$conectar->prepare("INSERT INTO Usuario (Nombre,DNI,Telefono,Fecha,Email,Contrasena) VALUES(?,?,?,?,?,?)")){
     $sql->bind_param('ssisss',$nombre,$dni,$telefono,$fecha,$email,$contrasena);
     $sql->execute();

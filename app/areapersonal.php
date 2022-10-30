@@ -11,7 +11,7 @@ if(!$conectar){
 }else{
     $base=mysqli_select_db($conectar,"database");
         if(!$base){
-            logear_error("No se ha encontrado la base de datos,comprueba que esta bien importada");
+          logear_error("No se ha encontrado la base de datos,comprueba que esta bien importada");
             echo"No Se Encontro La Base De Datos";
         
         }
