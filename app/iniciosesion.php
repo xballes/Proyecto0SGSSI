@@ -1,17 +1,21 @@
 <?php
-	ob_start();// para borrar el output buffer https://stackoverflow.com/questions/12654831/php-headers-already-sent-caused-by-session-start
-	session_start();
-	//conectamos Con el servidor
-  $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
-	//verificamos la conexion
-	if(!$conectar){
-		echo"No Se Pudo Conectar Con El Servidor";
-	}else{
-		$base=mysqli_select_db($conectar,"database");
-		if(!$base){
-			echo"No Se Encontro La Base De Datos";			
-		}
-	}
+ob_start();
+session_start();
+include 'logear.php';
+$conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
+//verificamos la conexion
+if(!$conectar){
+    echo"No Se Pudo Conectar Con El Servidor";
+    logear_error("No se ha podido conectar con el servidor");
+    
+}else{
+    $base=mysqli_select_db($conectar,"database");
+        if(!$base){
+            logear_error("No se ha encontrado la base de datos,comprueba que esta bien importada");
+            echo"No Se Encontro La Base De Datos";
+        
+        }
+}
   
 	//----------------------------------------------------------------------------------------------------------------------------------------
 	//recuperar las variables
@@ -53,6 +57,7 @@
           $_SESSION['DNI']=$dni;
           
         }else{
+          
           logear_error("Contraseña incorrecta");
 ?>
           <h3 class="bad">Contrasena incorrecta!</h3>        

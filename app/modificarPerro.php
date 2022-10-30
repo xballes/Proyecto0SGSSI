@@ -46,16 +46,22 @@ ob_start();
 
 <?php
 ob_start();
+session_start();
+include 'logear.php';
 $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
- //verificamos la conexion
- if(!$conectar){
-     echo"No Se Pudo Conectar Con El Servidor";
- }else{
-     $base=mysqli_select_db($conectar,"database");
-         if(!$base){
-             echo"No Se Encontro La Base De Datos";
-         }
- }
+//verificamos la conexion
+if(!$conectar){
+    echo"No Se Pudo Conectar Con El Servidor";
+    logear_error("No se ha podido conectar con el servidor");
+    
+}else{
+    $base=mysqli_select_db($conectar,"database");
+        if(!$base){
+            logear_error("No se ha encontrado la base de datos,comprueba que esta bien importada");
+            echo"No Se Encontro La Base De Datos";
+        
+        }
+}
 
 $NombrePerro=$_GET["NombrePerro"];
 $fechaN=$_GET["FechaNacimiento"];
@@ -81,8 +87,10 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
             $ejecutar1->close();
         }
             if($ejecucion1){
+                logear_error("No se ha podido modificar el nombre!");
                 ?> 
                     <h3 class="bad">No se ha podido modificar el nombre!</h3>
+                    
                 <?php
                
              }else{
@@ -117,6 +125,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                     $ejecutar2->close();
                 }
                     if($ejecucion2){
+                        logear_error("No se ha podido modificar el pais!");
                         ?> 
                         <h3 class="bad">No se ha podido modificar el pais!</h3>
                     <?php
@@ -156,6 +165,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                         $ejecutar3->close();
                     }
                         if($ejecucion3){
+                            logear_error("No se ha podido modificar la fecha!");
                             ?> 
                             <h3 class="bad">No se ha podido modificar la fecha!</h3>
                         <?php
@@ -196,6 +206,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
            $ejecucion4=$sql4->get_result();
            $sql4->close();
             if($ejecucion4){
+                logear_error("No se ha podido modificar el peso!");
                 ?> 
                 <h3 class="bad">No se ha podido modificar el peso!</h3>
             <?php
@@ -215,6 +226,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
            $ejecucion5=$sql5->get_result();
            $sql5->close();
             if($ejecucion5){
+                logear_error("No se ha podido modificar la raza!");
                 ?> 
                 <h3 class="bad">No se ha podido modificar la raza!</h3>
             <?php
