@@ -22,11 +22,12 @@ $peso=$_POST['pesoPerro'];
 $fechanacimiento=$_POST['fechaPerro'];
 $paisorigen=$_POST['paisorigen'];
 $sesionactual=$_SESSION['Usuario'];
-//$dniactual=$_SESSION['DNI'];
+$dniactual=$_SESSION['DNI'];
 
 if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
-  if($registrar=$conectar->prepare("INSERT INTO Perro VALUES(?,?,?,?,?)")){
-    $registrar->bind_param('ssiss',$nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen);
+  echo $dniactual;
+  if($registrar=$conectar->prepare("INSERT INTO Perro VALUES(?,?,?,?,?,?)")){
+    $registrar->bind_param('ssisss',$nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen,$dniactual);
     $registrar->execute();
     $registro=$registrar->get_result();
     $registrar->close();
@@ -42,7 +43,7 @@ if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
       ?> 
       <h3 class="ok">¡Perro registrado correctamente!</h3>
     <?php
-      header("Location:lista.php");
+      header("Location:listapersonal.php");
     }
 }
 ?>

@@ -19,8 +19,12 @@ $sql=mysqli_query($conectar,$dniactual);
 $dni=mysqli_fetch_array($sql)[0];
 */
 $dni=$_SESSION['DNI'];
-$listaperros="SELECT * FROM Perro";
-$lista=mysqli_query($conectar,$listaperros);
+if($listaperros=$conectar->prepare("SELECT * FROM Perro WHERE DNIDueño=?")){
+    $listaperros->bind_param('s',$dni);
+    $listaperros->execute();
+    $lista=$listaperros->get_result();
+    //$listaperros->close();
+}
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +49,7 @@ $lista=mysqli_query($conectar,$listaperros);
 </script>
 <body>
     <div class="listaperros">
-        <h2>Perros registrados</h2>
+        <h2>Perros registrados con el DNI: <?php echo $dni ?> </h2>
         <table>
             <thead>
                 <tr>
@@ -54,26 +58,32 @@ $lista=mysqli_query($conectar,$listaperros);
                     <th>Peso</th>
                     <th>FechaNacimiento</th>
                     <th>PaísOrigen</th>
+                    <th>DNIDueño</th>
                 </tr>
             </thead>
             <tbody>
-                <?php while ($fila = mysqli_fetch_array($lista)): ?>
+                <?php 
+                    while ($fila = mysqli_fetch_array($lista)): ?>
                     <tr>
                         <th><?=$fila['NombrePerro'] ?></th>
                         <th><?=$fila['Raza'] ?></th>
                         <th><?=$fila['Peso'] ?></th>
                         <th><?=$fila['FechaNacimiento'] ?></th>
                         <th><?=$fila['PaisOrigen'] ?></th>
-                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="editar">Editar</a></th>
-                        <th><a href="eliminarPerro.php?NombrePerro=<?=$fila['NombrePerro'] ?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
+                        <th><?=$fila['DNIDueño']?></th>
+                        <th><a href="modificarPerro.php?NombrePerro=<?=$fila['NombrePerro']?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>&DNIDueño=<?=$fila['DNIDueño']?>" class="editar">Editar</a></th>
+                        <th><a href="eliminarPerro.php?NombrePerro=<?=$fila['NombrePerro'] ?>&FechaNacimiento=<?=$fila['FechaNacimiento']?>&PaisOrigen=<?=$fila['PaisOrigen']?>&DNIDueño=<?=$fila['DNIDueño']?>" class="eliminar" onclick='return confirmacion()' >Eliminar</a></th>
                     </tr>
+                        
                 <?php endwhile; ?>
+                    
             </tbody>
            
         </table>
         
     </div>
-    <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.html'">
+    <input class="botones" type="button" value="Volver area personal" name="volver.area" onclick="location.href='areapersonal.php'">
+    <input class="botones" type="button" value="Volver pagina principal" name="volver.index" onclick="location.href='index.html'">
 </body>
 
 

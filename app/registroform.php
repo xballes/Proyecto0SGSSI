@@ -39,7 +39,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
   }
     $conectar->close();
     if($insertar){
-      logear_error("¡Ha ocurrido un error,vuelve a introducir los datos!");
+      logear_error("¡Ha ocurrido un error,vuelve a introducir los datos! Error al registrarse".$nombre.$dni);
       ?> 
           <h3 class="bad">¡Ha ocurrido un error,vuelve a introducir los datos!</h3>
           

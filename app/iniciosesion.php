@@ -56,13 +56,13 @@ if(!$conectar){
           $_SESSION['DNI']=$dni;
           
         }else{
-          logear_error("Contraseña incorrecta");
+          logear_error("Contraseña incorrecta,usuario con DNI".$dni);
 ?>
           <h3 class="bad">Contrasena incorrecta!</h3>        
 <?php 
         }
       }else{
-        logear_error("El usuario no existe!");
+        logear_error("El usuario no existe!,DNI introducido:".$dni);
 
 ?>
           <h3 class="bad">El usuario no existe!</h3>
@@ -91,6 +91,7 @@ if(!$conectar){
     <input class="botones" type="submit" value="Iniciar Sesion" name="iniciar">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
     <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.html'">
+    <p><a href="registroform.php">No tengo una cuenta</a></p>
   </section>
 
 </body>

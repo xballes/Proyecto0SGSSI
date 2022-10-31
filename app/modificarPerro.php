@@ -37,7 +37,7 @@ ob_start();
     <input class="caja" type="text" name ="paisorigen" id ='paisorigen' placeholder="p. ej Francia">
 
     <input class="botones"type="submit" value="Modificar datos" name="registrar.perro">
-    <input class="botones"type="button" value="Volver a la lista" name="volver.lista" onclick="location.href='lista.php'">
+    <input class="botones"type="button" value="Volver a la lista" name="volver.lista" onclick="location.href='listapersonal.php'">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
 
 </form>
