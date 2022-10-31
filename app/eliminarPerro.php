@@ -27,7 +27,7 @@ if(!$conectar){
  }
     $conectar->close();
     echo 'Se ha eliminado a '.$nombre.' de la lista';
-    header("Location:lista.php");
+    header("Location:listapersonal.php");
     //exit();
     //pruebaaaaaaaaaaaaaaaaaaaaaa
 
