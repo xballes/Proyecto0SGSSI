@@ -1,6 +1,6 @@
 function modificarUsuario(){
     if(document.getElementById('nombreMod').value.length>0){
-        if((!isNaN(document.getElementById('nombreMod').value))){ //Comprueba si el campo es vacio o contiene numeros ()
+        if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('nombreMod').value))){ //Comprueba si el campo es vacio o contiene numeros ()
             alert("El campo nombre esta vacio o contiene un numero");
             return false;
         }
@@ -38,4 +38,39 @@ function modificarUsuario(){
         
             }
         }
+}
+
+function modificarPerro(){
+    if(document.getElementById('nombrePerro').value.length>0){
+        if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('nombrePerro').value))){
+            alert("El formato del nombre no es valido.");
+            return false;
+        }
+    }
+    if(document.getElementById('fechaPerro').value.length>0){
+        if(!(/^\d{4}[\/\-](0?[1-9]|1[012])[\/\-](0?[1-9]|[12][0-9]|3[01])$/.test(document.getElementById('fechaPerro').value))){
+            alert("La fecha introducida no sigue el patron: aaaa-mm-dd");
+            return false;
+         }  
+    }
+    if(document.getElementById('razaPerro').value.length>0){
+        if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('razaPerro').value))){
+            alert("El formato de la raza no es valido.");
+            return false;
+         }
+    }
+    if(document.getElementById('pesoPerro').value.length>0){     
+        if(!(/[0-9]/gm.test(document.getElementById('pesoPerro').value))){
+            alert("El formato del peso no es valido.");
+            return false;
+        }
+    }
+    if(document.getElementById('paisorigen').value.length>0){    
+        if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('paisorigen').value))){
+            alert("El formato del pais no es valido.");
+            return false;
+
+        }    
+    }
+   
 }

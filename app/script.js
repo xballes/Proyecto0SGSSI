@@ -1,6 +1,5 @@
-
 function comprobarCampos(){
-    if(document.getElementById('nombre').value==='' || !isNaN(document.getElementById('nombre').value)){ //Comprueba si el campo es vacio o contiene numeros ()
+    if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('nombre').value))){ //Comprueba si el campo es vacio o contiene numeros ()
         alert("El campo nombre esta vacio o contiene un numero");
         return false;
     }

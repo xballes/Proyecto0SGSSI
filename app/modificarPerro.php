@@ -11,12 +11,12 @@ ob_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formularios.css">
-    <script src="./script.js"></script>
+    <script src="./prueba.js"></script>
   <title>Formulario de Registro</title>
 </head>
 <body>
   
-  <form class="formulario" action="modificarPerro.php?NombrePerro=<?=$NombrePerro?>&FechaNacimiento=<?=$fecha?>&PaisOrigen=<?=$pais?>"method="POST" onsubmit="return comprobarCamposPerro();">
+  <form class="formulario" action="modificarPerro.php?NombrePerro=<?=$NombrePerro?>&FechaNacimiento=<?=$fecha?>&PaisOrigen=<?=$pais?>&DNIDueño=<?=$fila['DNIDueño']?>"method="POST" onsubmit="return modificarPerro();">
     <h4>Modificar datos de:</h4>
     <h4> <?php echo $NombrePerro;
     ?></h4>
