@@ -22,7 +22,13 @@ function modificarUsuario(){
             alert("El email introducido no es correcto");
             return false;   
         }
-    }    
+    }
+    if(document.getElementById('contrasenaMod').value.length>0){
+        if(!(/(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(document.getElementById('contrasenaMod').value))){
+            alert("La contraseña no cumple los requisitos!");
+            return false;
+        }   
+    }
 
     if(document.getElementById('dniMod').value.length>0){
         if(/^\d{8}[a-zA-Z]$/.test(document.getElementById('dniMod').value)) {

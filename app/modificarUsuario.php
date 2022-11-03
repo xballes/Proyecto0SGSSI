@@ -9,7 +9,7 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formularios.css">
-    <script src="./prueba.js"></script>
+    <script src="./mod.js"></script>
   <title>Modificacion de datos</title>
 </head>
 <body>
@@ -149,7 +149,7 @@ if(!empty($dni)){
   }
   if(!empty($contrasena)){
       $contrasenasql=$conectar->prepare("UPDATE Usuario SET Contrasena=? WHERE DNI=? ");
-      $contrasenasql->bind_param('ss',$contrasena,$actual);
+      $contrasenasql->bind_param('ss',password_hash($contrasena,PASSWORD_DEFAULT."\n"),$actual);
       $contrasenasql->execute();
       $ejecutar6=$contrasenasql->get_result();
       if(!$ejecutar6){
