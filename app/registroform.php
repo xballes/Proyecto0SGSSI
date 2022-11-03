@@ -39,7 +39,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
   }
     $conectar->close();
     if($insertar){
-      logear_error("¡Ha ocurrido un error,vuelve a introducir los datos! Error al registrarse".$nombre.$dni);
+      logear_error("¡Ha ocurrido un error,vuelve a introducir los datos! Error al registrarse.DNI:  ".$dni);
       ?> 
           <h3 class="bad">¡Ha ocurrido un error,vuelve a introducir los datos!</h3>
           
@@ -49,6 +49,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
       /*SESION*/
       $_SESSION['Usuario']=$nombre;
       $_SESSION['DNI']=$dni;
+      //logear_error("El usuario con DNI: ".$dni +"se ha registrado correctamente.")
       header("Location:areapersonal.php");    
     
 }
@@ -61,13 +62,13 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formularios.css">
-    <script src="./script.js"></script>
+    <script src="./registro.js"></script>
   <title>Formulario de Registro</title>
 </head>
 <body>
  
 
-  <form action="registroform.php" class="formulario" method="POST" onsubmit="return comprobarCampos();">
+  <form action="registroform.php" class="formulario" method="POST" onsubmit="return comprobarCamposRegistro();">
     <h4>Formulario de Registro</h4>
     <p>Nombre:</p>
     <input class="caja" type="text" name="nombre" id ='nombre' placeholder="p. ej Ander" required>
@@ -84,7 +85,9 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
     <p>Email:</p>
     <input class="caja" type="text" name ="email" id='email' placeholder="p. ej xxxxxxx@gmail.com" required><br>
 <p>Contrasena:</p>
-    <input class="caja" type="password" name ="contrasena" id='contrasena'required><br>
+    <input class="caja" type="password" name ="contrasena" id='contrasena'krequired><br>
+
+    <h4>Longitud 8 y 16 caracteres, al menos un dígito, al menos una minúscula ,al menos una mayúscula y puede contener simbolos</h4>
 
     <input class="botones"type="submit" value="Registrar usuario" name="registrar">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">

@@ -1,4 +1,4 @@
-function comprobarCampos(){
+function comprobarCamposRegistro(){
     if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('nombre').value))){ //Comprueba si el campo es vacio o contiene numeros ()
         alert("El campo nombre esta vacio o contiene un numero");
         return false;
@@ -13,6 +13,10 @@ function comprobarCampos(){
    }
    else if(!(/^[a-zA-Z]+([\.]?[a-zA-Z0-9_-]+)*@[a-z0-9]+([\.-]+[a-z0-9]+)*\.[a-z]{2,4}$/.test(document.getElementById('email').value))){ //https://es.stackoverflow.com/questions/142/validar-un-email-en-javascript-que-acepte-todos-los-caracteres-latinos
     alert("El email introducido no es correcto");
+    return false;
+}
+else if(!(/(?=\w*\d)(?=\w*[A-Z])(?=\w*[a-z])\S{8,16}$/.test(document.getElementById('contrasena').value))){
+    alert("La contraseña no cumple los requisitos!");
     return false;
 }
     

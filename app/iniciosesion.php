@@ -54,15 +54,16 @@ if(!$conectar){
           header("Location:areapersonal.php");
           $_SESSION['Usuario']=(mysqli_fetch_array($nombre)[0]);
           $_SESSION['DNI']=$dni;
+          //logear_error("El usuario con DNI: ".$dni "ha iniciado sesión correctamente.");
           
         }else{
-          logear_error("Contraseña incorrecta,usuario con DNI".$dni);
+          logear_error("Contraseña incorrecta,usuario con DNI  ".$dni);
 ?>
           <h3 class="bad">Contrasena incorrecta!</h3>        
 <?php 
         }
       }else{
-        logear_error("El usuario no existe!,DNI introducido:".$dni);
+        logear_error("El usuario no existe! DNI introducido:  ".$dni);
 
 ?>
           <h3 class="bad">El usuario no existe!</h3>
