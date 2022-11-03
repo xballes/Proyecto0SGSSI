@@ -26,21 +26,21 @@ if(!$conectar){
     if(isset($dni) && isset($contrasena)){ 
       //----------------------------------------------------------------------------------------
       if($contrasenaUsuario = $conectar->prepare("SELECT Contrasena FROM Usuario WHERE DNI=?")){
-        $contrasenaUsuario->bind_param('s',$dni);
+        $contrasenaUsuario->bind_param('s',htmlspecialchars(mysqli_real_escape_string($conectar,$dni)));
         $contrasenaUsuario->execute();
         $contrasenaAcomparar = $contrasenaUsuario->get_result(); //recogemos resultado
         $contrasenaUsuario->close(); //cerramos el prepare
       }
       //----------------------------------------------------------------------------------------
       if($usuario=$conectar->prepare("SELECT * FROM Usuario WHERE DNI=?")){
-        $usuario->bind_param('s',$dni); //vinculamos el parámetro
+        $usuario->bind_param('s',htmlspecialchars(mysqli_real_escape_string($conectar,$dni))); //vinculamos el parámetro
         $usuario->execute();
         $datosUsuario = $usuario->get_result(); //recogemos resultado
         $usuario->close(); //cerramos el prepare
       }
       //----------------------------------------------------------------------------------------
       if($nombreUsuario=$conectar->prepare("SELECT Nombre FROM Usuario WHERE (DNI=?)")){
-        $nombreUsuario->bind_param('s',$dni);
+        $nombreUsuario->bind_param('s',htmlspecialchars(mysqli_real_escape_string($conectar,$dni)));
         $nombreUsuario->execute();    
         $nombre = $nombreUsuario->get_result(); //recogemos resultado
         $nombreUsuario->close(); //cerramos el prepare
