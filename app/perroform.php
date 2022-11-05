@@ -27,7 +27,7 @@ $dniactual=$_SESSION['DNI'];
 if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
   echo $dniactual;
   if($registrar=$conectar->prepare("INSERT INTO Perro VALUES(?,?,?,?,?,?)")){
-    $registrar->bind_param('ssisss',$nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen,$dniactual);
+    $registrar->bind_param('ssisss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$raza)),htmlspecialchars(mysqli_real_escape_string($conectar,$peso)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechanacimiento)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisorigen)),htmlspecialchars(mysqli_real_escape_string($conectar,$dniactual)));
     $registrar->execute();
     $registro=$registrar->get_result();
     $registrar->close();

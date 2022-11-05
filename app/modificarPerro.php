@@ -81,7 +81,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
 
     if(!empty($nombre)){
         if($ejecutar1=$conectar->prepare("UPDATE Perro SET NombrePerro=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
-            $ejecutar1->bind_param('ssss',$nombre,$NombrePerro,$paisO,$fechaN);
+            $ejecutar1->bind_param('ssss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombre)),htmlspecialchars(mysqli_real_escape_string($conectar,$NombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisO)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechaN)));
             $ejecutar1->execute();
             $ejecucion1=$ejecutar1->get_result();
             $ejecutar1->close();
@@ -119,7 +119,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
             }
              if(!empty($paisform)){
                 if($ejecutar2=$conectar->prepare("UPDATE Perro SET PaisOrigen=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
-                    $ejecutar2->bind_param('ssss',$paisform,$NombrePerro,$paisO,$fechaN);
+                    $ejecutar2->bind_param('ssss',htmlspecialchars(mysqli_real_escape_string($conectar,$paisform)),htmlspecialchars(mysqli_real_escape_string($conectar,$NombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisO)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechaN)));
                     $ejecutar2->execute();
                     $ejecucion2=$ejecutar2->get_result();
                     $ejecutar2->close();
@@ -159,7 +159,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                         
                 if(!empty($fecha)){
                     if($ejecutar3=$conectar->prepare("UPDATE Perro SET FechaNacimiento=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
-                        $ejecutar3->bind_param('ssss',$fecha,$NombrePerro,$paisO,$fechaN);
+                        $ejecutar3->bind_param('ssss',htmlspecialchars(mysqli_real_escape_string($conectar,$fecha)),htmlspecialchars(mysqli_real_escape_string($conectar,$NombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisO)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechaN)));
                         $ejecutar3->execute();
                         $ejecucion3=$ejecutar3->get_result();
                         $ejecutar3->close();
@@ -201,7 +201,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
                 
         if(!empty($peso)){
            $sql4=$conectar->prepare("UPDATE Perro SET Peso=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)");
-           $sql4->bind_param('ssss',$peso,$NombrePerro,$paisO,$fechaN);
+           $sql4->bind_param('ssss',htmlspecialchars(mysqli_real_escape_string($conectar,$peso)),htmlspecialchars(mysqli_real_escape_string($conectar,$NombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisO)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechaN)));
            $sql4->execute();
            $ejecucion4=$sql4->get_result();
            $sql4->close();
@@ -221,7 +221,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
 
         if(!empty($raza)){
            $sql5=$conectar->prepare("UPDATE Perro SET Raza=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)");
-           $sql5->bind_param('ssss',$raza,$NombrePerro,$paisO,$fechaN);
+           $sql5->bind_param('ssss',htmlspecialchars(mysqli_real_escape_string($conectar,$raza)),htmlspecialchars(mysqli_real_escape_string($conectar,$NombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisO)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechaN)));
            $sql5->execute();
            $ejecucion5=$sql5->get_result();
            $sql5->close();

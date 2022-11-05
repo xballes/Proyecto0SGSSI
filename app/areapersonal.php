@@ -39,7 +39,7 @@ if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
 </head>
 <body>
 <form action="registrar.php" class="formulario" method="POST">
-  <h2> ¡Bienvenido <?php echo $_SESSION['Usuario']?> !</h2>
+  <h2> ¡Bienvenido a tu area personal!</h2>
   <h2> ¿Qué deseas hacer? </h2>
   <input class="botones" type="button" value="Modificar datos" name="modificar" onclick="location.href='modificarUsuario.php'">
   <input class="botones"type="button" value="Mostrar lista de animales" name="ver.animales" onclick="location='listapersonal.php'">

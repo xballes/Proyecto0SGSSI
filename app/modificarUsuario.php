@@ -75,7 +75,7 @@ $actualNombre=$_SESSION['Usuario'];
 //-------------------------------------------------------------------------------
 if(!empty($dni)){
   if($dnisql=$conectar->prepare("UPDATE Usuario SET DNI=? WHERE DNI=?")){
-    $dnisql->bind_param('ss',$dni,$actual);
+    $dnisql->bind_param('ss',htmlspecialchars(mysqli_real_escape_string($conectar,$dni)),htmlspecialchars(mysqli_real_escape_string($conectar,$actual)));
     $dnisql->execute();
     $dnisqlejec=$dnisql->get_result();
     $dnisql->close();
@@ -104,7 +104,7 @@ if(!empty($dni)){
   }
   if(!empty($nombre)){
     $nombresql=$conectar->prepare("UPDATE Usuario SET Nombre=? WHERE DNI=?");
-    $nombresql->bind_param('ss',$nombre,$actual);
+    $nombresql->bind_param('ss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombre)),htmlspecialchars(mysqli_real_escape_string($conectar,$actual)));
     $nombresql->execute();
     $ejecutar1=$nombresql->get_result();
         /*Cerrar sesion*/
@@ -116,7 +116,7 @@ if(!empty($dni)){
 }
      if(!empty($telefono)){
       $telefonosql=$conectar->prepare("UPDATE Usuario SET Telefono=? WHERE DNI=? ");
-      $telefonosql->bind_param('is',$telefono,$actual);
+      $telefonosql->bind_param('is',htmlspecialchars(mysqli_real_escape_string($conectar,$telefono)),htmlspecialchars(mysqli_real_escape_string($conectar,$actual)));
       $telefonosql->execute();
       $ejecutar3=$telefonosql->get_result();
       if(!$ejecutar3){
@@ -127,7 +127,7 @@ if(!empty($dni)){
   }
      if(!empty($fecha)){
       $fechasql=$conectar->prepare("UPDATE Usuario SET Fecha=? WHERE DNI=?");
-      $fechasql->bind_param('ss',$fecha,$actual);
+      $fechasql->bind_param('ss',htmlspecialchars(mysqli_real_escape_string($conectar,$fecha)),htmlspecialchars(mysqli_real_escape_string($conectar,$actual)));
       $fechasql->execute();
       $ejecutar4=$fechasql->get_result();
       if(!$ejecutar4){
@@ -138,7 +138,7 @@ if(!empty($dni)){
   }
   if(!empty($email)){
     $emailsql=$conectar->prepare("UPDATE Usuario SET Email=? WHERE DNI=? ");
-      $emailsql->bind_param('ss',$email,$actual);
+      $emailsql->bind_param('ss',htmlspecialchars(mysqli_real_escape_string($conectar,$email)),htmlspecialchars(mysqli_real_escape_string($conectar,$actual)));
       $emailsql->execute();
       $ejecutar5=$emailsql->get_result();
       if(!$ejecutar5){
