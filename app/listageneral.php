@@ -44,7 +44,6 @@ $lista=mysqli_query($conectar,$listaperros);
                     <th>Peso</th>
                     <th>FechaNacimiento</th>
                     <th>PaísOrigen</th>
-                    <th>DNIDueño</th>
                 </tr>
             </thead>
             <tbody>
@@ -55,7 +54,6 @@ $lista=mysqli_query($conectar,$listaperros);
                         <th><?=$fila['Peso'] ?></th>
                         <th><?=$fila['FechaNacimiento'] ?></th>
                         <th><?=$fila['PaisOrigen'] ?></th>
-                        <th><?=$fila['DNIDueño']?></th>
                     </tr>
                 <?php endwhile; ?>
             </tbody>

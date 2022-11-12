@@ -45,7 +45,7 @@ h2{
 }
 
 a{
-  color: white;
+  color: red;
   display: grid;
   place-content: center;
 }
