@@ -24,33 +24,43 @@ $fecha=$_POST['fecha'];
 $email=$_POST['email'];
 $contrasena=password_hash($_POST['contrasena'],PASSWORD_DEFAULT."\n");
 
+$ip = $_SERVER['REMOTE_ADDR'];
+$captcha=$_POST['g-recaptcha-response'];
+$secretkey="6LeH-QIjAAAAACdTcXlYNl2nc7vyTs7YSRf0aPvL";
+$response= file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&$remoteip=$ip");
+$atributos=json_decode($response,TRUE);
+
 
 //hacemos la sentencia de sql
 
 
 //verificamos la ejecucion
 if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
-  if($sql=$conectar->prepare("INSERT INTO Usuario (Nombre,DNI,Telefono,Fecha,Email,Contrasena) VALUES(?,?,?,?,?,?)")){
-    $sql->bind_param('ssisss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombre)),htmlspecialchars(mysqli_real_escape_string($conectar,$dni)),htmlspecialchars(mysqli_real_escape_string($conectar,$telefono)),htmlspecialchars(mysqli_real_escape_string($conectar,$fecha)),htmlspecialchars(mysqli_real_escape_string($conectar,$email)),htmlspecialchars(mysqli_real_escape_string($conectar,$contrasena)));
-    $sql->execute();
-    $insertar=$sql->get_result();
-    $sql->close();
+  if(!$atributos['success']){
+    echo '<script language="javascript">alert("Debes verificar la casilla del Captcha");</script>';
+  }else{
+    if($sql=$conectar->prepare("INSERT INTO Usuario (Nombre,DNI,Telefono,Fecha,Email,Contrasena) VALUES(?,?,?,?,?,?)")){
+      $sql->bind_param('ssisss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombre)),htmlspecialchars(mysqli_real_escape_string($conectar,$dni)),htmlspecialchars(mysqli_real_escape_string($conectar,$telefono)),htmlspecialchars(mysqli_real_escape_string($conectar,$fecha)),htmlspecialchars(mysqli_real_escape_string($conectar,$email)),htmlspecialchars(mysqli_real_escape_string($conectar,$contrasena)));
+      $sql->execute();
+      $insertar=$sql->get_result();
+      $sql->close();
+    }
+      $conectar->close();
+      if($insertar){
+        logear_error("¡Ha ocurrido un error,vuelve a introducir los datos! Error al registrarse.DNI:  ".$dni);
+        ?> 
+            <h3 class="bad">¡Ha ocurrido un error,vuelve a introducir los datos!</h3>
+            
+            <?php
+    }
+        //echo"Datos Guardados Correctamente";
+        /*SESION*/
+        $_SESSION['Usuario']=$nombre;
+        $_SESSION['DNI']=$dni;
+        //logear_error("El usuario con DNI: ".$dni +"se ha registrado correctamente.")
+        header("Location:areapersonal.php");    
+      
   }
-    $conectar->close();
-    if($insertar){
-      logear_error("¡Ha ocurrido un error,vuelve a introducir los datos! Error al registrarse.DNI:  ".$dni);
-      ?> 
-          <h3 class="bad">¡Ha ocurrido un error,vuelve a introducir los datos!</h3>
-          
-           <?php
-  }
-      //echo"Datos Guardados Correctamente";
-      /*SESION*/
-      $_SESSION['Usuario']=$nombre;
-      $_SESSION['DNI']=$dni;
-      //logear_error("El usuario con DNI: ".$dni +"se ha registrado correctamente.")
-      header("Location:areapersonal.php");    
-    
 }
 ?>
 
@@ -61,6 +71,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formularios.css">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script src="./registro.js"></script>
   <title>Formulario de Registro</title>
 </head>
@@ -87,7 +98,9 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
     <input class="caja" type="password" name ="contrasena" id='contrasena'krequired><br>
 
     <h4>Longitud 8 y 16 caracteres, al menos un dígito, al menos una minúscula ,al menos una mayúscula y puede contener simbolos</h4>
-
+    <div class = "mb-3">
+      <div class="g-recaptcha" data-sitekey="6LeH-QIjAAAAAB-W6Qk6sA3g7Gpw9cpF2Xmf2RIP"></div>
+  </div>
     <input class="botones"type="submit" value="Registrar usuario" name="registrar">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
     <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.html'">

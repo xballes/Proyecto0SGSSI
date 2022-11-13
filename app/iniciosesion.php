@@ -22,6 +22,7 @@ if(!$conectar){
 	$nombre=$_POST['nombre'];
 	$dni=$_POST['dni'];
 	$contrasena=$_POST['contrasena'];
+
   $ip = $_SERVER['REMOTE_ADDR'];
   $captcha=$_POST['g-recaptcha-response'];
   $secretkey="6LeH-QIjAAAAACdTcXlYNl2nc7vyTs7YSRf0aPvL";

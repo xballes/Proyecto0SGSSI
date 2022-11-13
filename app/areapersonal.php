@@ -18,15 +18,13 @@ if(!$conectar){
 }
 
 $dni=$_SESSION['DNI'];
-if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
-    $datosusuario->bind_param('s',$dni);
-    $datosusuario->execute();
-    $lista=$datosusuario->get_result();
-    $datosusuario->close();
-    $conectar->close();
-
-}
-
+    if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
+        $datosusuario->bind_param('s',$dni);
+        $datosusuario->execute();
+        $lista=$datosusuario->get_result();
+        $datosusuario->close();
+        $conectar->close();
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
