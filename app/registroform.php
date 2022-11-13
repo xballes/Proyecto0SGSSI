@@ -30,7 +30,6 @@ $contrasena=password_hash($_POST['contrasena'],PASSWORD_DEFAULT."\n");
 
 //verificamos la ejecucion
 if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
-  console.log($contrasena);
   if($sql=$conectar->prepare("INSERT INTO Usuario (Nombre,DNI,Telefono,Fecha,Email,Contrasena) VALUES(?,?,?,?,?,?)")){
     $sql->bind_param('ssisss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombre)),htmlspecialchars(mysqli_real_escape_string($conectar,$dni)),htmlspecialchars(mysqli_real_escape_string($conectar,$telefono)),htmlspecialchars(mysqli_real_escape_string($conectar,$fecha)),htmlspecialchars(mysqli_real_escape_string($conectar,$email)),htmlspecialchars(mysqli_real_escape_string($conectar,$contrasena)));
     $sql->execute();

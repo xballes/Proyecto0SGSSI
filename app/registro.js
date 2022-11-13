@@ -37,7 +37,7 @@ else if(/^\d{8}[a-zA-Z]$/.test(document.getElementById('dni').value)) {
 //-------------------------------------------------------------------------------------------------------------------
 
 function registrarPerro(){
-        if((!isNaN(document.getElementById('nombreRegistro').value))){ //Comprueba si el campo es vacio o contiene numeros ()
+        if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('nombreRegistro').value))){ //Comprueba si el campo es vacio o contiene numeros ()
             alert("El campo nombre esta vacio o contiene un numero");
             return false;
         }
