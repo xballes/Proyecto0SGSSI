@@ -1,4 +1,6 @@
 <?php
+header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
+//header("Content-Security-Policy: default-src 'self'");
 $NombrePerro=$_GET['NombrePerro'];
 $fecha=$_GET['FechaNacimiento'];
 $pais=$_GET['PaisOrigen'];

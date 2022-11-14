@@ -1,4 +1,6 @@
 <?php
+header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
+//header("Content-Security-Policy: default-src 'self'");
 ob_start();
 include 'logear.php';
 $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");

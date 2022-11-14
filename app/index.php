@@ -1,3 +1,7 @@
+<?php
+header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
+//header("Content-Security-Policy: default-src 'self'");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +16,9 @@
     <div>
         <nav>
             <ul>
-            <a href="index.html">INICIO</a> 
-            <a href="galeria.html">GALERÍA</a>
-            <a href="contacto.html">CONTACTO</a>
+            <a href="index.php">INICIO</a> 
+            <a href="galeria.php">GALERÍA</a>
+            <a href="contacto.php">CONTACTO</a>
             <a href="registroform.php">REGISTRARSE/INICIAR</a>
             <img src="transparente.png" class =logo>
             <div class="animation start-home"></div>
