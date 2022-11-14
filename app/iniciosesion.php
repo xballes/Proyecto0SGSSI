@@ -1,4 +1,5 @@
 <?php
+header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
 ob_start();
 session_start();
 include 'logear.php';
