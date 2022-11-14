@@ -105,7 +105,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
   </div>
     <input class="botones"type="submit" value="Registrar usuario" name="registrar">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
-    <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.html'">
+    <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.php'">
     <p><a href="iniciosesion.php">Ya tengo Cuenta</a></p>
 </form>
 </body>

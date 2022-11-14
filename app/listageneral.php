@@ -64,7 +64,7 @@ $lista=mysqli_query($conectar,$listaperros);
         
     </div>
     <p><a href="iniciosesion.php">Si eres el dueño de uno de estos animales y deseas modificar sus datos o eliminarlo de la base de datos, pulsa aquí</a></p>
-    <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.html'">
+    <input class="botones" type="button" value="Volver pagina principal" name="volver" onclick="location.href='index.php'">
 </body>
 
 

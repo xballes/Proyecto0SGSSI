@@ -85,7 +85,7 @@ if($listaperros=$conectar->prepare("SELECT * FROM Perro WHERE DNIDueño=?")){
         
     </div>
     <input class="botones" type="button" value="Volver area personal" name="volver.area" onclick="location.href='areapersonal.php'">
-    <input class="botones" type="button" value="Volver pagina principal" name="volver.index" onclick="location.href='index.html'">
+    <input class="botones" type="button" value="Volver pagina principal" name="volver.index" onclick="location.href='index.php'">
 </body>
 
 

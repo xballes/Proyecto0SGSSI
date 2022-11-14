@@ -44,7 +44,7 @@ $dni=$_SESSION['DNI'];
   <input class="botones" type="button" value="Modificar datos" name="modificar" onclick="location.href='modificarUsuario.php'">
   <input class="botones"type="button" value="Mostrar lista de animales" name="ver.animales" onclick="location='listapersonal.php'">
   <input class="botones"type="button" value="Añadir perro" name="añadir.perro" onclick="location='perroform.php'">
-  <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.html'">
+  <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.php'">
 </form>
 <div class="lista">
         <h2>Tus datos</h2>
