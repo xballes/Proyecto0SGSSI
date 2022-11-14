@@ -1,6 +1,6 @@
 <?php
 
-shell_exec('sh */docker-lamp/Proyecto0SGSSI/app/permisos.sh');
+
 
 function getRealIP() {
 
@@ -14,6 +14,7 @@ function getRealIP() {
 }
 
 function logear_error(String $mensaje){
+    shell_exec('sh */docker-lamp/Proyecto0SGSSI/app/permisos.sh');
     $ruta='*/docker-lamp/Proyecto0SGSSI/';
     $new_ip=getRealIP();
     //include_path='/home/xabi/docker-lamp/Proyecto0SGSSI';
