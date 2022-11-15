@@ -1,6 +1,7 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
 //header("Content-Security-Policy: default-src 'self'");
+
 ob_start();
 session_start();
 include 'logear.php';
@@ -32,11 +33,9 @@ $secretkey="6LeH-QIjAAAAACdTcXlYNl2nc7vyTs7YSRf0aPvL";
 $response= file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&$remoteip=$ip");
 $atributos=json_decode($response,TRUE);
 
+header("Content-Security-Policy: connect-src *.google.com");
 
-//hacemos la sentencia de sql
 
-
-//verificamos la ejecucion
 if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
   if(!$atributos['success']){
     echo '<script language="javascript">alert("Debes verificar la casilla del Captcha");</script>';

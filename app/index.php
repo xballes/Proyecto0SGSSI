@@ -1,6 +1,7 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
 //header("Content-Security-Policy: default-src 'self'");
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,7 +33,7 @@ header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
             Refugio Perruno 
         </h1>
         
-        <img src="https://media.quincemil.com/imagenes/2020/12/28212016/DSC_1038-2-1920x1080.jpg" alt="">
+        <img src="./imagenes/refugio.jpg" alt="">
         <h1 class="subtitulo"> Descripción:</h1>
         <p>Somos una asociación sin ánimo de lucro fundada en 2014 con la finalidad primordial de la defensa y protección de los animales mediante la recogida de perros abandonados, promover su defensa mediante campañas de concienciación, divulgación, y la gestión de nuestro refugio.</p>
         

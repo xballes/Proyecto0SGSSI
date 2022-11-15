@@ -1,5 +1,5 @@
 <?php
-
+//header("Content-Security-Policy: default-src 'self'");
 shell_exec('sh */docker-lamp/Proyecto0SGSSI/app/permisos.sh');
 
 function getRealIP() {

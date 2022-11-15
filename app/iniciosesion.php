@@ -1,6 +1,7 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
 //header("Content-Security-Policy: default-src 'self'");
+
 ob_start();
 session_start();
 include 'logear.php';
@@ -31,6 +32,7 @@ if(!$conectar){
   $response= file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&$remoteip=$ip");
   $atributos=json_decode($response,TRUE);
 
+  header("Content-Security-Policy: connect-src *.google.com");
 
     if(isset($dni) && isset($contrasena)){ 
       if(!$atributos['success']){
