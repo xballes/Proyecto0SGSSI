@@ -1,6 +1,6 @@
 function comprobarCamposRegistro(){
     if(!(/[a-zA-Z ]+$/gm.test(document.getElementById('nombre').value))){ //Comprueba si el campo es vacio o contiene numeros ()
-        alert("El campo nombre esta vacio o contiene un numero");
+        alert("El campo nombre esta vacio o contiene caracteres especiales");
         return false;
     }
     else if(document.getElementById('telefono').value.length!=9){

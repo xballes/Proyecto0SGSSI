@@ -96,7 +96,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
     <p>Email:</p>
     <input class="caja" type="text" name ="email" id='email' placeholder="p. ej xxxxxxx@gmail.com" required><br>
 <p>Contrasena:</p>
-    <input class="caja" type="password" name ="contrasena" id='contrasena'krequired><br>
+    <input class="caja" type="password" name ="contrasena" id='contrasena'required><br>
 
     <h4>Longitud 8 y 16 caracteres, al menos un dígito, al menos una minúscula ,al menos una mayúscula y puede contener simbolos</h4>
     <div class = "mb-3">

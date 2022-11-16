@@ -20,7 +20,6 @@ header("Content-Security-Policy: default-src 'self'");
         <nav>
             <a href="index.php">INICIO</a>
             <a href="galeria.php">GALERÍA</a>
-            <a href="contacto.php">CONTACTO</a>
 			<a href="registroform.php">REGISTRARSE/INICIAR</a>
 			<img src="transparente.png"class="logo">
             <div class="animation start-home"></div>
