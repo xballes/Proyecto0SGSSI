@@ -22,12 +22,9 @@ function logear_error(String $mensaje){
                 echo"No Se Encontro La Base De Datos";
             }
     }
-    shell_exec('sh */docker-lamp/Proyecto0SGSSI/app/permisos.sh');
-    $ruta='*/docker-lamp/Proyecto0SGSSI/app/';
+    
     $new_ip=getRealIP();
-    //include_path='/home/xabi/docker-lamp/Proyecto0SGSSI';
-    set_include_path($ruta);
-    $logFile = fopen("errores.log", 'a+b');
+    $logFile = fopen("erroresnuevo.log", 'a+b');
     fwrite($logFile, "\n".date("d/m/Y H:i:s")."   ".$mensaje."  "."La ip del login es: "."".$new_ip); 
     fclose($logFile);
     if($log=$conectar->prepare("INSERT INTO Log VALUES(?,?)")){
