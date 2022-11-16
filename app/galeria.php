@@ -1,6 +1,6 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
-header("Content-Security-Policy: default-src 'self'");
+header("Content-Security-Policy: style-src https://fonts.googleapis.com/*");
 
 ?>
 <!DOCTYPE html>

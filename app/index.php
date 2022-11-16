@@ -1,7 +1,6 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
 //header("Content-Security-Policy: default-src 'self'");
-
 ?>
 <!DOCTYPE html>
 <html lang="en">

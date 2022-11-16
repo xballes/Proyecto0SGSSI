@@ -1,10 +1,10 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
 //header("Content-Security-Policy: default-src 'self'");
-
 ob_start();
 session_start();
 include 'logear.php';
+include 'csrf.php';
 $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
 //verificamos la conexion
 if(!$conectar){
@@ -32,8 +32,7 @@ if(!$conectar){
   $response= file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&$remoteip=$ip");
   $atributos=json_decode($response,TRUE);
 
-  header("Content-Security-Policy: connect-src *.google.com");
-
+   if(csrf::checkTokenCSRF($_POST['token'])){
     if(isset($dni) && isset($contrasena)){ 
       if(!$atributos['success']){
         echo '<script language="javascript">alert("Debes verificar la casilla del Captcha");</script>';
@@ -66,6 +65,7 @@ if(!$conectar){
           if(password_verify($contrasena,$hash)){ // y la compara con la que ha introducido.      
             /*SESION*/
             header("Location:areapersonal.php");
+            logear_error("Se ha iniciado sesión correctamente");
             $_SESSION['Usuario']=(mysqli_fetch_array($nombre)[0]);
             $_SESSION['DNI']=$dni;
             //logear_error("El usuario con DNI: ".$dni "ha iniciado sesión correctamente.");
@@ -84,7 +84,8 @@ if(!$conectar){
   <?php 
         }	
       }
-    }  	
+    }
+   }    	
   ?>
 
 <!DOCTYPE html>
@@ -112,6 +113,7 @@ if(!$conectar){
     <input class="botones" type="submit" value="Iniciar Sesion" name="iniciar">
     <input class="botones"type="reset" value="Borrar datos" name="borrar">
     <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.php'">
+    <input type="hidden" name="token" value="<?php echo csrf::getTokenCSRF() ?>">
     <p><a href="registroform.php">No tengo una cuenta</a></p>
   </section>
 

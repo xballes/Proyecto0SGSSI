@@ -56,6 +56,7 @@ if(isset($nombre,$dni,$telefono,$fecha,$email,$contrasena)){
     }
         //echo"Datos Guardados Correctamente";
         /*SESION*/
+        logear_error("Se ha registrado el usuario con DNI"  .$dni);
         $_SESSION['Usuario']=$nombre;
         $_SESSION['DNI']=$dni;
         //logear_error("El usuario con DNI: ".$dni +"se ha registrado correctamente.")
