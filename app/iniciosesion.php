@@ -95,11 +95,10 @@ if(!$conectar){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formularios.css">
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <script src="./registro.js"></script>
   <title>Iniciar sesión</title>
 </head>
 <body>
-  <form class="formulario" method="POST" action="iniciosesion.php" onsubmit="return comprobarCamposInicio();">
+  <form class="formulario" method="POST" action="iniciosesion.php">
     <h4>Iniciar Sesion</h4>
     <p>DNI:</p>
     <input class="caja" type="text" name="dni" id ='dni' placeholder="p. ej 78675431L" required>
