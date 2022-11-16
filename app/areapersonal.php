@@ -1,5 +1,6 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
+header('X-Content-Type-Options: nosniff');
 //header("Content-Security-Policy: default-src 'self'");
 
 ob_start();

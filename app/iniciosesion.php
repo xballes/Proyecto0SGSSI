@@ -1,10 +1,10 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
+header('X-Content-Type-Options: nosniff');
 //header("Content-Security-Policy: default-src 'self'");
 ob_start();
 session_start();
 include 'logear.php';
-include 'csrf.php';
 $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
 //verificamos la conexion
 if(!$conectar){
@@ -31,8 +31,6 @@ if(!$conectar){
   $secretkey="6LeH-QIjAAAAACdTcXlYNl2nc7vyTs7YSRf0aPvL";
   $response= file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secretkey&response=$captcha&$remoteip=$ip");
   $atributos=json_decode($response,TRUE);
-
-   if(csrf::checkTokenCSRF($_POST['token'])){
     if(isset($dni) && isset($contrasena)){ 
       if(!$atributos['success']){
         echo '<script language="javascript">alert("Debes verificar la casilla del Captcha");</script>';
@@ -84,8 +82,7 @@ if(!$conectar){
   <?php 
         }	
       }
-    }
-   }    	
+    }    	
   ?>
 
 <!DOCTYPE html>
