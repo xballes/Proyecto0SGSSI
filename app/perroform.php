@@ -1,6 +1,5 @@
 <?php
 header('X-Frame-Options:SAMEORIGIN'); //click-jacking prevention
-header('X-Content-Type-Options: nosniff');
 //header("Content-Security-Policy: default-src 'self'");
 ob_start();
 session_start();
@@ -26,28 +25,31 @@ $fechanacimiento=$_POST['fechaPerro'];
 $paisorigen=$_POST['paisorigen'];
 $sesionactual=$_SESSION['Usuario'];
 $dniactual=$_SESSION['DNI'];
-
-if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
-  if($registrar=$conectar->prepare("INSERT INTO Perro VALUES(?,?,?,?,?,?)")){
-    $registrar->bind_param('ssisss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$raza)),htmlspecialchars(mysqli_real_escape_string($conectar,$peso)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechanacimiento)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisorigen)),htmlspecialchars(mysqli_real_escape_string($conectar,$dniactual)));
-    $registrar->execute();
-    $registro=$registrar->get_result();
-    $registrar->close();
-  }
-  $conectar->close(); 
-  if($registro){
-    logear_error("¡Ha ocurrido un error en el registro,vuelve a introducir los datos!");
-      ?>      
-          <h3 class="bad">¡Ha ocurrido un error en el registro,vuelve a introducir los datos!</h3>
-            <?php
-              
-  }else{
-      ?> 
-      <h3 class="ok">¡Perro registrado correctamente!</h3>
-    <?php
-      header("Location:listapersonal.php");
+if(!isset($_SESSION['Usuario']) || !isset($_SESSION['DNI'])){
+  header("location:iniciosesion.php");
+}else{
+  if(isset($nombrePerro,$raza,$peso,$fechanacimiento,$paisorigen)){
+    if($registrar=$conectar->prepare("INSERT INTO Perro VALUES(?,?,?,?,?,?)")){
+      $registrar->bind_param('ssisss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$raza)),htmlspecialchars(mysqli_real_escape_string($conectar,$peso)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechanacimiento)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisorigen)),htmlspecialchars(mysqli_real_escape_string($conectar,$dniactual)));
+      $registrar->execute();
+      $registro=$registrar->get_result();
+      $registrar->close();
     }
-}
+    $conectar->close(); 
+    if($registro){
+      logear_error("¡Ha ocurrido un error en el registro,vuelve a introducir los datos!");
+        ?>      
+            <h3 class="bad">¡Ha ocurrido un error en el registro,vuelve a introducir los datos!</h3>
+              <?php
+                
+    }else{
+        ?> 
+        <h3 class="ok">¡Perro registrado correctamente!</h3>
+      <?php
+        header("Location:listapersonal.php");
+      }
+  }
+} 
 ?>
 <!DOCTYPE html>
 <html lang="en">

@@ -62,10 +62,11 @@ if(!$conectar){
             $hash=mysqli_fetch_array($contrasenaAcomparar)[0];    
           if(password_verify($contrasena,$hash)){ // y la compara con la que ha introducido.      
             /*SESION*/
-            header("Location:areapersonal.php");
-            logear_error("Se ha iniciado sesión correctamente");
             $_SESSION['Usuario']=(mysqli_fetch_array($nombre)[0]);
             $_SESSION['DNI']=$dni;
+            header("Location:areapersonal.php");
+            logear_error("Se ha iniciado sesión correctamente");
+           
             //logear_error("El usuario con DNI: ".$dni "ha iniciado sesión correctamente.");
             
           }else{

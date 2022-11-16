@@ -21,12 +21,16 @@ $dniactual="SELECT DNI from Usuario where Nombre='$sesionactual'";
 $sql=mysqli_query($conectar,$dniactual);
 $dni=mysqli_fetch_array($sql)[0];
 */
+if(!isset($_SESSION['Usuario']) || !isset($_SESSION['DNI'])){
+    header("location:iniciosesion.php");
+}else{
 $dni=$_SESSION['DNI'];
-if($listaperros=$conectar->prepare("SELECT * FROM Perro WHERE DNIDueño=?")){
-    $listaperros->bind_param('s',$dni);
-    $listaperros->execute();
-    $lista=$listaperros->get_result();
-    //$listaperros->close();
+    if($listaperros=$conectar->prepare("SELECT * FROM Perro WHERE DNIDueño=?")){
+        $listaperros->bind_param('s',$dni);
+        $listaperros->execute();
+        $lista=$listaperros->get_result();
+        //$listaperros->close();
+    }
 }
 ?>
 

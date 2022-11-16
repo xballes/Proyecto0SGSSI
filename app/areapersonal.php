@@ -20,15 +20,21 @@ if(!$conectar){
         
         }
 }
-
-$dni=$_SESSION['DNI'];
-    if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
-        $datosusuario->bind_param('s',$dni);
-        $datosusuario->execute();
-        $lista=$datosusuario->get_result();
-        $datosusuario->close();
-        $conectar->close();
+    if(!isset($_SESSION['Usuario']) || !isset($_SESSION['DNI'])){
+        header("location:iniciosesion.php");
     }
+    else{
+        $dni=$_SESSION['DNI'];
+         if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
+            $datosusuario->bind_param('s',$dni);
+            $datosusuario->execute();
+            $lista=$datosusuario->get_result();
+            $datosusuario->close();
+            $conectar->close();
+    }
+    }    
+    
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -46,7 +52,7 @@ $dni=$_SESSION['DNI'];
   <input class="botones" type="button" value="Modificar datos" name="modificar" onclick="location.href='modificarUsuario.php'">
   <input class="botones"type="button" value="Mostrar lista de animales" name="ver.animales" onclick="location='listapersonal.php'">
   <input class="botones"type="button" value="Añadir perro" name="añadir.perro" onclick="location='perroform.php'">
-  <input class="botones" type="button" value="Volver página principal" name="volver" onclick="location.href='index.php'">
+  <p><a href="cerrarsesion.php">Cerrar Sesión</a></p>
 </form>
 <div class="lista">
         <h2>Tus datos</h2>

@@ -81,7 +81,9 @@ $sql2="UPDATE Perro SET PaisOrigen=? WHERE (NombrePerro=? AND PaisOrigen=? AND F
 $sql3="UPDATE Perro SET FechaNacimiento=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)"; // FECHA NACIMIENTO
 $sql4="UPDATE Perro SET Peso=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)"; //PESO
 $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)"; //RAZA
-
+if(!isset($_SESSION['Usuario']) || !isset($_SESSION['DNI'])){
+    header("location:iniciosesion.php");
+}else{
     if(!empty($nombre)){
         if($ejecutar1=$conectar->prepare("UPDATE Perro SET NombrePerro=? WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
             $ejecutar1->bind_param('ssss',htmlspecialchars(mysqli_real_escape_string($conectar,$nombre)),htmlspecialchars(mysqli_real_escape_string($conectar,$NombrePerro)),htmlspecialchars(mysqli_real_escape_string($conectar,$paisO)),htmlspecialchars(mysqli_real_escape_string($conectar,$fechaN)));
@@ -241,6 +243,7 @@ $sql5="UPDATE Perro SET Raza=? WHERE WHERE (NombrePerro=? AND PaisOrigen=? AND F
              }
 
         }
+}    
 
 
 ?>
