@@ -5,6 +5,7 @@ header('X-Content-Type-Options: nosniff');
 
 ob_start();
 session_start();
+$inactivo=3600;
 include 'logear.php';
 $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
 //verificamos la conexion
@@ -20,6 +21,34 @@ if(!$conectar){
         
         }
 }
+if(!isset($_SESSION['Usuario']) || !isset($_SESSION['DNI'])){
+    header("location:iniciosesion.php");
+}
+
+if(isset($_SESSION['tiempo']) ) {
+    $vida_session = time() - $_SESSION['tiempo'];
+        if($vida_session > $inactivo){
+            session_unset();
+            session_destroy();
+            echo '<script language="javascript">alert("Se ha caducado tu sesión!Vuelve a iniciar sesión");
+            window.location="iniciosesion.php";</script>';
+            //header("Location: iniciosesion.php"); 
+        }
+        
+        $dni=$_SESSION['DNI'];
+        if($datosusuario=$conectar->prepare("SELECT * FROM Usuario WHERE(DNI=?)")){
+           $datosusuario->bind_param('s',$dni);
+           $datosusuario->execute();
+           $lista=$datosusuario->get_result();
+           $datosusuario->close();
+           $conectar->close();
+   }
+    }
+
+   
+ 
+    $_SESSION['tiempo'] = time();
+/*
     if(!isset($_SESSION['Usuario']) || !isset($_SESSION['DNI'])){
         header("location:iniciosesion.php");
     }
@@ -33,7 +62,7 @@ if(!$conectar){
             $conectar->close();
     }
     }    
-    
+  */  
 
 ?>
 <!DOCTYPE html>
