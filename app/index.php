@@ -18,7 +18,7 @@ header('X-Content-Type-Options: nosniff');
         <nav>
             <ul>
             <a href="index.php">INICIO</a> 
-            <a href="galeria.php">GALERÍA</a>
+            <a href="galeria.html">GALERÍA</a>
             <a href="registroform.php">REGISTRARSE/INICIAR</a>
             <img src="transparente.png" class =logo>
             <div class="animation start-home"></div>

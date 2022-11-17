@@ -4,7 +4,6 @@ header('X-Content-Type-Options: nosniff');
 //header("Content-Security-Policy: default-src 'self'");
 ob_start();
 session_start();
-session_start();
 $_SESSION["token"] = bin2hex(random_bytes(32));
 $_SESSION["token-expire"] = time() + 3600; //3600s
 
@@ -65,6 +64,7 @@ echo '<script language="javascript">alert("Debes verificar la casilla del Captch
     /*SESION*/
         $_SESSION['Usuario']=(mysqli_fetch_array($nombre)[0]);
         $_SESSION['DNI']=$dni;
+        $_SESSION['tiempo']=time();       
         header("Location:areapersonal.php");
         logear_error("Se ha iniciado sesión correctamente");
         //logear_error("El usuario con DNI: ".$dni "ha iniciado sesión correctamente.");
