@@ -12,17 +12,7 @@ function getRealIP() {
     return $_SERVER['REMOTE_ADDR'];
 }
 
-function logear_error(String $mensaje){
-    $conectar=@mysqli_connect("db","lK9pF81rtVq1","o80dGpAMjKb2","database");
-    if(!$conectar){
-    echo"No Se Pudo Conectar Con El Servidor";
-    }else{
-        $base=mysqli_select_db($conectar,"database");
-            if(!$base){
-                echo"No Se Encontro La Base De Datos";
-            }
-    }
-    
+function logear_error(String $mensaje){    
     $new_ip=getRealIP();
     $logFile = fopen("erroresnuevo.log", 'a+b');
     fwrite($logFile, "\n".date("d/m/Y H:i:s")."   ".$mensaje."  "."La ip del login es: "."".$new_ip); 

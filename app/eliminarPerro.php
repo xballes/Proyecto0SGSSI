@@ -21,9 +21,6 @@ if(!$conectar){
  $nombre=$_GET["NombrePerro"];
  $fecha=$_GET["FechaNacimiento"];
  $pais=$_GET["PaisOrigen"];
- if(!isset($_SESSION['Usuario']) || !isset($_SESSION['DNI'])){
-    header("location:iniciosesion.php");
-}else{
  if($sql=$conectar->prepare("DELETE FROM Perro WHERE (NombrePerro=? AND PaisOrigen=? AND FechaNacimiento=?)")){
     $sql->bind_param('sss',$nombre,$pais,$fecha);
     $sql->execute();
