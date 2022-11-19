@@ -19,7 +19,7 @@ $ sudo docker-compose up
 ```
 http://localhost:8890/
 ```
-5.Una vez en PHPMyAdmin iniciar sesión con Usuario: "lK9pF81rtVq1" Contraseña: "o80dGpAMjKb2", después hacer click en database e importar la base de datos **database.sql**.
+5.Una vez en PHPMyAdmin iniciar sesión con Usuario: "lK9pF81rtVq1" Contraseña: "o80dGpAMjKb2", después hacer click en database e importar la base de datos **database_entrega_2.sql**.
 
 6.Después de realizar todos los pasos hay que introducir la siguiente dirección para acceder a la página web:
 ```
