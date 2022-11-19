@@ -19,7 +19,7 @@ $ sudo docker-compose up
 ```
 http://localhost:8890/
 ```
-5.Una vez en PHPMyAdmin iniciar sesión con Usuario: "admin" Contraseña: "test", después hacer click en database e importar la base de datos **database.sql**.
+5.Una vez en PHPMyAdmin iniciar sesión con Usuario: "lK9pF81rtVq1" Contraseña: "o80dGpAMjKb2", después hacer click en database e importar la base de datos **database.sql**.
 
 6.Después de realizar todos los pasos hay que introducir la siguiente dirección para acceder a la página web:
 ```
@@ -27,10 +27,14 @@ http://localhost:81/
 ```
 
 ## Uso de la página
-En la página principal, se encuentra la información acerca del refugio, una barra de navegación para acceder a los distintos apartados de la página y en la parte inferior tres botones, uno para ver la lista de perros, otro para añadir perros y otro para modificar los datos del usuario, que al pulsarlo redirigirá al formulario para iniciar sesión. En la lista de animales es posible tanto modificar los datos del perro seleccionado como eliminar el perro seleccionado.
+En la página principal, se encuentra la información acerca del refugio, una barra de navegación para acceder a los distintos apartados de la página y en la parte inferior tres botones, uno para ver la lista de perros, otro para añadir perros y otro para modificar los datos del usuario, que al pulsarlo redirigirá al formulario para iniciar sesión. En la lista de animales,solo es posible visualizar los datos de los animales,para eliminar/modificar algun dato es necesario estar registrado en el sistema.
 
 Para poder acceder al área personal del usuario es necesario registrarse o iniciar sesión. El botón para ello se encuentra en la barra superior, y en caso de que el usuario ya disponga de una cuenta, puede iniciar sesión.
 
-Una vez en el área la única opción disponible es la de modificar los datos del usuario que haya iniciado la sesión o se haya registrado. 
+Una vez en el área existen varias opciones disponibles:
+1.Modificar los datos del usuario que haya iniciado la sesión o se haya registrado.
+2.Mostrar los perros del usuario y poder eliminar/modificar sus datos.
+3.Añadir un perro al refugio.
+4.Un botón para cerrar sesión, que redirige a la página principal
 
-También está disponible un botón 'Galería' que muestra fotos de los perros del refugio y un formulario de contacto (que no funciona) en caso de que alguien se quiera poner en contacto con el refugio.
+También está disponible un botón 'Galería' que muestra fotos de los perros del refugio.
